@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="#f123"
+    tools:context=".Addstaff">
+    
+    <ImageView
+        android:layout_width="160dp"
+        android:layout_height="127dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/registerlogo"/>
+
+    <EditText
+        android:id="@+id/staffname"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:background="#ffffff"
+        android:hint="Staff name"
+        />
+
+    <EditText
+        android:id="@+id/phoneno"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="#ffffff"
+        android:hint="staff Phone no."
+        />
+
+    <EditText
+        android:id="@+id/year"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="#ffffff"
+        android:hint="Joining year"
+        />
+    
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="#ffffff"
+        android:hint="Email address"
+        />
+    
+    <Button
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:hint="Register"
+        />
+
+
+
+
+
+</LinearLayout>
+
+
+
