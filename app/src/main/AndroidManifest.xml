@@ -17,7 +17,21 @@
         <activity android:name=".CreateTable" />
         <activity android:name=".UsersList" />
         <activity android:name=".Additem" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".ItemViewActivity"></activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:theme="@style/AppTheme.FullScreen" />
+        <activity
+            android:name=".HomepageActivity"
+            android:theme="@style/AppTheme.FullScreen" />
+        <activity android:name=".CreateTables" />
+        <activity android:name=".UsersList" />
+        <activity
+            android:name=".Login"
+            android:theme="@style/AppTheme.FullScreen" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

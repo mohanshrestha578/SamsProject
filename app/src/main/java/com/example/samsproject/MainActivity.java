@@ -18,16 +18,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        drawer = findViewById(R.id.drawer);
-
-        myToogle = new ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close);
-
-        drawer.addDrawerListener(myToogle);
-        myToogle.syncState();
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        startActivity(new Intent(getApplicationContext(), Login.class));
+        startActivity(new Intent(getApplicationContext(), HomepageActivity.class));
+//        setContentView(R.layout.activity_main);
+//
+//        drawer = findViewById(R.id.drawer);
+//
+//        myToogle = new ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close);
+//
+//        drawer.addDrawerListener(myToogle);
+//        myToogle.syncState();
+//
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
     @Override
@@ -39,7 +41,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void userlist(View view) {
+
         startActivity(new Intent(getApplicationContext(), Additem.class));
+//        startActivity(new Intent(getApplicationContext(), UsersList.class));
+    }
+
+    public void forgotPassword(View view) {
+        
     }
 }
 

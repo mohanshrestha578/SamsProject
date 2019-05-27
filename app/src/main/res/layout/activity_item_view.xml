@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ItemViewActivity">
+
+    <ScrollView
+        android:id="@+id/item_view_sv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/item_view_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/food_banner"
+                android:adjustViewBounds="true"/>
+
+            <RelativeLayout
+                android:id="@+id/item_view_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_view_image"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="-100dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="5dp"
+                android:elevation="2dp">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:minHeight="200dp"
+                    android:layout_height="wrap_content"
+                    app:cardElevation="8dp"
+                    app:cardCornerRadius="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:id="@+id/item_view_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="The Squidish Pizza"
+                            android:textSize="22sp"
+                            android:textColor="#000"
+                            android:textStyle="bold"
+                            />
+
+                        <TextView
+                            android:id="@+id/item_view_category"
+                            android:layout_below="@id/item_view_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CategoryName"
+                            android:drawableLeft="@drawable/ic_account_balance_wallet_black_18dp"
+                            android:drawablePadding="5dp"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#222"/>
+
+                        <TextView
+                            android:id="@+id/item_view_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rs.150"
+                            android:layout_below="@id/item_view_category"
+                            android:layout_marginTop="-19dp"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#222"/>
+
+                        <TextView
+                            android:id="@+id/item_view_description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/item_view_price"
+                            android:layout_marginTop="20dp"
+                            android:text="Pizza cheese frequently consists of a blend of two or more cheeses, such as low-moisture Mozzarella or Provolone. Low-moisture Mozzarella was first manufactured in dairy factories in the Midwestern United States, and was originally called 'pizza cheese'."
+                            />
+
+                        <Button
+                            android:id="@+id/addToCart"
+                            android:layout_width="80dp"
+                            android:layout_height="40dp"
+                            android:layout_below="@id/item_view_description"
+                            android:text="Add"
+                            android:drawableLeft="@drawable/ic_shopping_cart_black_24dp"
+                            android:drawableRight="5dp"
+                            android:layout_alignParentRight="true"/>
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_below="@id/item_view_description"-->
+                            <!--android:background="@drawable/btn_radius"-->
+                            <!--android:text="Add to Cart"-->
+                            <!--android:textColor="#fff"-->
+                            <!--/>-->
+
+                    </RelativeLayout>
+
+
+                </android.support.v7.widget.CardView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/item_view_recommended_dish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@id/item_view_info">
+
+                <TextView
+                    android:id="@+id/item_view_recommended_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recommended Dish"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:textColor="#000"/>
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recommended_dish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/item_view_recommended_dish"
+                android:layout_marginLeft="25dp"></android.support.v7.widget.RecyclerView>
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>

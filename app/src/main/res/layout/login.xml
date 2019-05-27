@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Login">
+
+    <ImageView
+        android:id="@+id/loginHeader"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/header"
+        android:layout_marginTop="-65dp"
+        />
+
+    <TextView
+        android:id="@+id/loginText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textSize="40sp"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:layout_alignBottom="@+id/loginHeader"/>
+
+    <ImageView
+        android:id="@+id/login_footer"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:layout_alignParentBottom="true"
+        android:rotation="180"
+        android:scaleType="fitXY"
+        android:src="@mipmap/header"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="-100dp"/>
+
+    <ScrollView
+        android:id="@+id/loginSV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/loginText">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="-70dp">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/loginCV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="40dp"
+                app:cardCornerRadius="70dp"
+                android:elevation="8dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="15dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp">
+
+                    <EditText
+                        android:id="@+id/login_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:padding="10dp"
+                        android:inputType="textEmailAddress"
+                        android:background="@android:color/transparent"
+                        android:hint="Email or Phone number"
+                        android:drawableLeft="@drawable/ic_perm_identity"
+                        android:drawablePadding="30dp"/>
+
+                    <View
+                        android:id="@+id/login_view1"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="#71d2d2d2"
+                        android:layout_below="@id/login_username"/>
+
+
+                    <EditText
+                        android:id="@+id/login_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/login_view1"
+                        android:layout_margin="15dp"
+                        android:padding="10dp"
+                        android:background="@android:color/transparent"
+                        android:hint="Password"
+                        android:drawableLeft="@drawable/ic_lock"
+                        android:inputType="textPassword"
+                        android:drawablePadding="30dp"/>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="10dp"
+                android:layout_alignTop="@+id/loginCV"
+                android:layout_alignBottom="@+id/loginCV"
+                android:layout_alignEnd="@+id/loginCV"
+                android:layout_marginEnd="-30dp"
+                android:layout_centerHorizontal="true"
+                >
+
+                <ImageButton
+                    android:id="@+id/btnLogin"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/bt_ui"
+                    android:src="@drawable/ic_arrow_forward_black_24dp"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/login_button"
+                    android:onClick="login"
+                    />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Forgot Password?"
+                android:layout_below="@id/loginCV"
+                android:layout_alignRight="@id/loginCV"
+                android:textColor="#aaa"
+                android:textStyle="bold"
+                android:onClick="forgotPassword"
+                android:layout_marginRight="20dp"/>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/register_btn_cv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/loginCV"
+                app:cardCornerRadius="35dp"
+                android:elevation="10dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:onClick="registerPage"
+                >
+
+                <TextView
+                    android:id="@+id/login_registerBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Register"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="90dp"
+                    android:textColor="@color/colorPurple"
+                    android:padding="10dp"
+                    />
+
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
