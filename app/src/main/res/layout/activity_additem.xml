@@ -4,35 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
     android:background="#5489B3"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".Additem">
 
     <ImageView
         android:layout_width="160dp"
         android:layout_height="127dp"
         android:layout_marginTop="40dp"
-        android:src="@drawable/item"/>
+        android:src="@drawable/item" />
 
     <EditText
-        android:id="@+id/itemname"
+        android:id="@+id/item_name"
         android:layout_width="190dp"
         android:layout_height="40dp"
         android:layout_marginTop="40dp"
         android:background="#ffffff"
-        android:hint="Item Name"
-        />
+        android:hint="Item Name" />
 
+    <Button
+        android:id="@+id/choose_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="CHOOSE FILE" />
 
     <EditText
-        android:id="@+id/categoryname"
+        android:id="@+id/category_name"
         android:layout_width="190dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:background="#ffffff"
-        android:hint="Category Name"
-        />
+        android:hint="Category Name" />
 
     <EditText
         android:id="@+id/price"
@@ -40,19 +45,25 @@
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:background="#ffffff"
-        android:hint="Price"
-        />
-
+        android:hint="Price" />
 
 
     <Button
-        android:id="@+id/additembtn1"
+        android:id="@+id/add_item"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
+        android:background="#00f"
         android:hint="Add Item"
-        />
+        android:textColor="#fff"
+        android:onClick="uploadItem"/>
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp" />
 
 
 </LinearLayout>

@@ -25,12 +25,14 @@
         android:inputType="number" />
 
     <Button
+        android:id="@+id/addTable"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:background="#0f0"
-        android:text="ADD TABLE" />
+        android:onClick="addtable"
+        android:text="ADD TABLE"/>
 
     <Button
         android:layout_width="150dp"

@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void userlist(View view) {
-        startActivity(new Intent(getApplicationContext(), UsersList.class));
+        startActivity(new Intent(getApplicationContext(), Additem.class));
     }
 }
 
