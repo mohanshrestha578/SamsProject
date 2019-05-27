@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomepageActivity">
+
+
+    <ImageView
+        android:layout_width="380dp"
+        android:layout_height="350dp"
+        android:src="@drawable/circle_and_background"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="130dp"
+        android:layout_marginEnd="-100dp"
+        android:layout_marginTop="-110dp"
+        />
+
+    <ScrollView
+        android:id="@+id/home_sv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <RelativeLayout
+                android:id="@+id/homepage_banner_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp">
+
+                <ImageView
+                    android:id="@+id/homepage_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/food_banner"
+                    android:background="@drawable/radius_img"
+                    android:adjustViewBounds="true"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/homepage_banner_wrapper"
+                android:layout_marginTop="10dp"
+                android:padding="2dp"
+                android:paddingStart="30dp"
+                >
+
+                <TextView
+                    android:id="@+id/special_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Our Special Dish"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="#000"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/homepage_rv_special"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@id/special_text"
+                    android:layout_marginTop="10dp"
+                    >
+
+                </android.support.v7.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/homepage_offers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Discount Offers!"
+                    android:layout_below="@id/homepage_rv_special"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#000"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/homepage_rv_offers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/homepage_offers"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                </android.support.v7.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/homepage_menu_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Menu"
+                    android:layout_below="@id/homepage_rv_offers"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="#000"
+                    android:layout_marginTop="10dp"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/homepage_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/homepage_menu_text"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    ></android.support.v7.widget.RecyclerView>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
