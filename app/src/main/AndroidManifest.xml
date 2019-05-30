@@ -13,19 +13,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdminTableLists"></activity>
+        <activity android:name=".AdminTableLists" />
         <activity android:name=".CreateTable" />
+        <activity android:name=".Addcategory" />
         <activity android:name=".UsersList" />
+        <activity android:name=".Addstaff" />
         <activity android:name=".Additem" />
-        <activity android:name=".ItemViewActivity"></activity>
+        <activity android:name=".ItemViewActivity" />
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/AppTheme.FullScreen" />
         <activity
             android:name=".HomepageActivity"
             android:theme="@style/AppTheme.FullScreen" />
-        <activity android:name=".CreateTables" />
-        <activity android:name=".UsersList" />
         <activity
             android:name=".Login"
             android:theme="@style/AppTheme.FullScreen" />
