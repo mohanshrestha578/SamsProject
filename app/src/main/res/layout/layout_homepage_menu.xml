@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -9,19 +9,48 @@
         android:layout_height="wrap_content">
 
         <android.support.v7.widget.CardView
-            android:layout_width="wrap_content"
+            android:layout_width="180dp"
+            android:minHeight="150dp"
             android:layout_height="wrap_content"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/homepage_menu_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/food_banner"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/radius_img"
+                    />
+
+                <TextView
+                    android:id="@+id/homepage_menu_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/homepage_menu_image"
+                    android:text="Pizza Cuts"
+                    android:textStyle="bold"
+                    android:textSize="17sp"
+                    />
+                <TextView
+                    android:id="@+id/homepage_menu_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/homepage_menu_title"
+                    android:text="Rs.450"
+                    />
+
+            </RelativeLayout>
+
 
         </android.support.v7.widget.CardView>
 
     </RelativeLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

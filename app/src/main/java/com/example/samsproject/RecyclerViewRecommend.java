@@ -1,18 +1,23 @@
 package com.example.samsproject;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class RecyclerViewRecommend extends RecyclerView.Adapter<RecyclerViewRecommend.ViewHolder> {
 
-    private static final String TAG = "RecyclerViewOffers";
+    private static final String TAG = "RecyclerViewRecommend";
 
     // vars
     private Context mContext;
@@ -30,17 +35,24 @@ public class RecyclerViewRecommend extends RecyclerView.Adapter<RecyclerViewReco
     @NonNull
     @Override
     public RecyclerViewRecommend.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return null;
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_recommended_dish, viewGroup, false);
+        return new RecyclerViewRecommend.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewRecommend.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+        Log.d(TAG, "onBindViewHolder: ");
 
+
+        Picasso.get().load(mImageUrls.get(i)).into(viewHolder.image);
+
+        viewHolder.title.setText(mTitle.get(i));
+        viewHolder.price.setText(mPrice.get(i));
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mTitle.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

@@ -6,6 +6,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 public class HomepageActivity extends AppCompatActivity {
@@ -22,6 +25,8 @@ public class HomepageActivity extends AppCompatActivity {
     private ArrayList<String> offer_discount = new ArrayList<>();
     private ArrayList<String> offer_category = new ArrayList<>();
 
+    private DatabaseReference dbR;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +34,9 @@ public class HomepageActivity extends AppCompatActivity {
 
         getImages();
         getOffers();
+
+        dbR = FirebaseDatabase.getInstance().getReference("Table Information");
+
     }
 
     private void getImages(){
