@@ -32,51 +32,51 @@ public class UsersList extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         userList.add(
-                new User(1, R.drawable.one, "Mohan Shrestha")
+                new User(1, R.drawable.one, "Mohan Shrestha", "mohan@gmail.com", "9876543219")
         );
 
         userList.add(
-                new User(2, R.drawable.two, "Ram Shrestha")
+                new User(2, R.drawable.two, "Ram Shrestha", "mohan@gmail.com", "9876543219")
         );
 
         userList.add(
-                new User(3, R.drawable.three, "Shyam Shrestha")
+                new User(3, R.drawable.three, "Shyam Shrestha", "mohan@gmail.com", "9876543219")
         );
 
         userList.add(
-                new User(1, R.drawable.one, "Mohan Shrestha")
+                new User(1, R.drawable.one, "Mohan Shrestha", "mohan@gmail.com", "9876543219")
         );
 
         userList.add(
-                new User(2, R.drawable.two, "Ram Shrestha")
+                new User(2, R.drawable.two, "Ram Shrestha", "mohan@gmail.com", "9876543219")
         );
 
         userList.add(
-                new User(3, R.drawable.three, "Shyam Shrestha")
+                new User(3, R.drawable.three, "Shyam Shrestha","mohan@gmail.com", "9876543219")
         );
 
         userList.add(
-                new User(1, R.drawable.one, "Mohan Shrestha")
+                new User(1, R.drawable.one, "Mohan Shrestha", "mohan@gmail.com", "9876543219")
         );
 
         userList.add(
-                new User(2, R.drawable.two, "Ram Shrestha")
+                new User(2, R.drawable.two, "Ram Shrestha", "mohan@gmail.com", "9876543219")
         );
 
         userList.add(
-                new User(3, R.drawable.three, "Shyam Shrestha")
+                new User(3, R.drawable.three, "Shyam Shrestha", "mohan@gmail.com", "9876543219")
         );
 
         userList.add(
-                new User(1, R.drawable.one, "Mohan Shrestha")
+                new User(1, R.drawable.one, "Mohan Shrestha", "mohan@gmail.com", "9876543219")
         );
 
         userList.add(
-                new User(2, R.drawable.two, "Ram Shrestha")
+                new User(2, R.drawable.two, "Ram Shrestha", "mohan@gmail.com", "9876543219")
         );
 
         userList.add(
-                new User(3, R.drawable.three, "Shyam Shrestha")
+                new User(3, R.drawable.three, "Shyam Shrestha", "mohan@gmail.com", "9876543219")
         );
 
         usersAdapter = new UsersAdapter(this, userList);

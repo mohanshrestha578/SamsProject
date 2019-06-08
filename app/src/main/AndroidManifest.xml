@@ -3,6 +3,8 @@
     package="com.example.samsproject">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,16 +13,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ItemViewActivity"
+        <activity
+            android:name=".Activities.AddRolesActivity"
             android:theme="@style/AppTheme.FullScreen"></activity>
+        <activity
+            android:name=".Activities.RolesActivity"
+            android:theme="@style/AppTheme.FullScreen"/>
+        <activity
+            android:name=".Activities.CategoryActivity"
+            android:theme="@style/AppTheme.FullScreen" />
+        <activity android:name=".Activities.AddCategory" />
+        <activity
+            android:name=".ItemViewActivity"
+            android:theme="@style/AppTheme.FullScreen" />
+        <activity android:name=".AdminTableLists" />
+        <activity android:name=".CreateTable" />
+        <activity android:name=".Addcategory" />
+        <activity android:name=".UsersList" />
+        <activity android:name=".Addstaff" />
+        <activity
+            android:name=".Additem"
+            android:theme="@style/AppTheme.FullScreen"
+            />
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/AppTheme.FullScreen" />
         <activity
-            android:name=".HomepageActivity"
+            android:name=".Activities.HomepageActivity"
             android:theme="@style/AppTheme.FullScreen" />
-        <activity android:name=".CreateTables" />
-        <activity android:name=".UsersList" />
         <activity
             android:name=".Login"
             android:theme="@style/AppTheme.FullScreen" />
@@ -33,6 +53,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Activities.Admin.Item"
+            android:theme="@style/AppTheme.FullScreen"/>
     </application>
 
 </manifest>

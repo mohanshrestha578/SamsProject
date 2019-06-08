@@ -1,16 +1,14 @@
 package com.example.samsproject;
 
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.example.samsproject.RecyclerViews.RecyclerViewRecommend;
 
 import java.util.ArrayList;
 

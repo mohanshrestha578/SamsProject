@@ -9,6 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.samsproject.Activities.AddCategory;
+import com.example.samsproject.Activities.Admin.Item;
+import com.example.samsproject.Activities.HomepageActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawer;
@@ -18,8 +22,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        startActivity(new Intent(getApplicationContext(), Login.class));
-        startActivity(new Intent(getApplicationContext(), HomepageActivity.class));
+//        setContentView(R.layout.activity_main);
+        startActivity(new Intent(getApplicationContext(), Additem.class));
+//        startActivity(new Intent(getApplicationContext(), HomepageActivity.class));
 //        setContentView(R.layout.activity_main);
 //
 //        drawer = findViewById(R.id.drawer);
@@ -41,11 +46,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void userlist(View view) {
-        startActivity(new Intent(getApplicationContext(), UsersList.class));
-//        startActivity(new Intent(getApplicationContext(), UsersList.class));
+
+        startActivity(new Intent(getApplicationContext(), CreateTable.class));
+//        startActivity(new Intent(getApplicationContext(), Addtable.class));
     }
 
     public void forgotPassword(View view) {
+        
     }
 }
 

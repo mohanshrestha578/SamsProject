@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.AddCategory"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:id="@+id/label_add_category_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Category Name"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingLeft="5dp"/>
+        <EditText
+            android:id="@+id/add_category_name"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@id/label_add_category_name"
+            android:hint="E.g: Desserts"
+            android:inputType="text"
+            />
+        <Button
+            android:id="@+id/createCategory_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/add_category_name"
+            android:layout_toLeftOf="@id/createCategory_cancleBtn"
+            android:text="Add"
+            android:onClick="createCategory"
+            />
+        <Button
+            android:id="@+id/createCategory_cancleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/add_category_name"
+            android:layout_alignRight="@id/add_category_name"
+            android:text="Cancle"
+            android:onClick="cancelCategory"
+            android:layout_marginLeft="10dp"
+            />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
