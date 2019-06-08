@@ -1,13 +1,69 @@
 package com.example.samsproject;
 
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Addstaff extends AppCompatActivity {
+
+    private EditText name;
+    private EditText phoneNumber;
+    private EditText year;
+    private EditText staffEmail;
+    private EditText address;
+    private Button addStaff;
+
+    private DatabaseReference dbref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addstaff);
+
+        name = findViewById(R.id.staffname);
+        phoneNumber = findViewById(R.id.staffPhoneno);
+        year = findViewById(R.id.joinYear);
+        staffEmail = findViewById(R.id.staffEmail);
+        address = findViewById(R.id.staffLocation);
+
+        dbref = FirebaseDatabase.getInstance().getReference("Staff Information");
+    }
+
+    public void addStaff(View view) {
+        String staffName = name.getText().toString();
+        String staffPhone = phoneNumber.getText().toString();
+        String staffJoinYear = year.getText().toString();
+        String staffEmailAddress = staffEmail.getText().toString();
+        String staffLocation = address.getText().toString();
+
+        if(TextUtils.isEmpty(staffName)) {
+            Toast.makeText(this, "Please, Enter the name of the staff", Toast.LENGTH_SHORT).show();
+        }else if(TextUtils.isEmpty(staffPhone)){
+            Toast.makeText(this, "Please, Enter the contact number of staff", Toast.LENGTH_SHORT).show();
+        }else if(TextUtils.isEmpty(staffJoinYear)){
+            Toast.makeText(this, "Please, Enter the joining date of the staff", Toast.LENGTH_SHORT).show();
+        }else if(TextUtils.isEmpty(staffEmailAddress)){
+            Toast.makeText(this, "Please, Enter the email address of the staff", Toast.LENGTH_SHORT).show();
+        }else if(TextUtils.isEmpty(staffLocation)){
+            Toast.makeText(this, "Please, Enter the location where staff lives", Toast.LENGTH_SHORT).show();
+        }else{
+            String staffId = dbref.push().getKey();
+            Staff staff = new Staff(staffId, staffName, staffPhone, staffJoinYear, staffEmailAddress, staffLocation);
+            dbref.child(staffId).setValue(staff);
+            Toast.makeText(this, "Staff has been successfully added", Toast.LENGTH_SHORT).show();
+            name.setText("");
+            phoneNumber.setText("");
+            year.setText("");
+            staffEmail.setText("");
+            address.setText("");
+        }
     }
 }

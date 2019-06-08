@@ -18,32 +18,32 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-        startActivity(new Intent(getApplicationContext(), Additem.class));
+        setContentView(R.layout.activity_main);
+ //       startActivity(new Intent(getApplicationContext(), Additem.class));
 //        startActivity(new Intent(getApplicationContext(), HomepageActivity.class));
 //        setContentView(R.layout.activity_main);
 //
-//        drawer = findViewById(R.id.drawer);
-//
-//        myToogle = new ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close);
-//
-//        drawer.addDrawerListener(myToogle);
-//        myToogle.syncState();
-//
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    //        drawer = findViewById(R.id.drawer);
+    //
+    //        myToogle = new ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close);
+    //
+    //        drawer.addDrawerListener(myToogle);
+    //        myToogle.syncState();
+    //
+    //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if(myToogle.onOptionsItemSelected(item)){
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        if(myToogle.onOptionsItemSelected(item)){
+//            return true;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 
     public void userlist(View view) {
 
-        startActivity(new Intent(getApplicationContext(), CreateTable.class));
+        startActivity(new Intent(getApplicationContext(), AdminTableLists.class));
 //        startActivity(new Intent(getApplicationContext(), Addtable.class));
     }
 
