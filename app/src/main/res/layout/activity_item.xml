@@ -6,16 +6,53 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    tools:context=".Item">
+    tools:context=".Activities.Admin.Item">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/list_admin_items_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="List of Food Items"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="5dp"
+            />
+
+        <Button
+            android:id="@+id/list_admin_items_createBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:text="Create Item"
+            android:textSize="12sp"
+            android:layout_marginRight="10dp"
+            android:onClick="createAdminItem"
+            />
+
+    </RelativeLayout>
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="30dp"
+        android:layout_marginVertical="10dp"
         android:layout_marginHorizontal="10dp"
         android:background="#f1f1f1"
         >
         <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sn."
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -27,95 +64,25 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Category"
+                android:text="Options"
                 android:textStyle="bold"
-                android:layout_weight="1"
-                android:gravity="center"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Price"
-                android:textStyle="bold"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:gravity="center"/>
 
 
         </TableRow>
 
-        <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
+        <ScrollView>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/show_rv_items"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="MoMo"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:background="#ffffff"
-                android:layout_marginBottom="1dp"
-                android:layout_marginHorizontal="1dp"/>
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Non - veg"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:background="#ffffff"
-                android:layout_marginBottom="1dp"
-                android:layout_marginHorizontal="1dp"/>
+            </android.support.v7.widget.RecyclerView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rs 100"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:background="#ffffff"
-                android:layout_marginBottom="1dp"
-                android:layout_marginHorizontal="1dp"/>
-
-
-        </TableRow>
-
-        <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Chowmein"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:background="#ffffff"
-                android:layout_marginBottom="1dp"
-                android:layout_marginHorizontal="1dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Veg"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:background="#ffffff"
-                android:layout_marginBottom="1dp"
-                android:layout_marginHorizontal="1dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rs 80"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:background="#ffffff"
-                android:layout_marginBottom="1dp"
-                android:layout_marginHorizontal="1dp"/>
-
-
-        </TableRow>
+        </ScrollView>
 
     </TableLayout>
 

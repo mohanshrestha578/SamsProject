@@ -1,4 +1,4 @@
-package com.example.samsproject;
+package com.example.samsproject.RecyclerViews;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -11,12 +11,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.samsproject.R;
 
 import java.util.ArrayList;
 
 public class RecyclerViewItem extends RecyclerView.Adapter<RecyclerViewItem.ViewHolder> {
 
-    private static final String TAG = "RecyclerViewItem";
+    private static final String TAG = "RecyclerViewAdminItem";
 
     // vars
     private ArrayList<String> mTitle = new ArrayList<>();
@@ -41,10 +42,10 @@ public class RecyclerViewItem extends RecyclerView.Adapter<RecyclerViewItem.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Log.d(TAG, "onBindViewHolder: ");
-        Glide.with(mContext)
-                .asBitmap()
-                .load(mImageUrls.get(i))
-                .into(viewHolder.image);
+//        Glide.with(mContext)
+//                .asBitmap()
+//                .load(mImageUrls.get(i))
+//                .into(viewHolder.image);
 
         viewHolder.title.setText(mTitle.get(i));
         viewHolder.price.setText(mPrice.get(i));

@@ -94,16 +94,8 @@
                             android:layout_below="@id/item_view_description"
                             android:text="Add"
                             android:drawableLeft="@drawable/ic_shopping_cart_black_24dp"
-
+                            android:drawablePadding="5dp"
                             android:layout_alignParentRight="true"/>
-                        <!--<TextView-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:layout_below="@id/item_view_description"-->
-                            <!--android:background="@drawable/btn_radius"-->
-                            <!--android:text="Add to Cart"-->
-                            <!--android:textColor="#fff"-->
-                            <!--/>-->
 
                     </RelativeLayout>
 
