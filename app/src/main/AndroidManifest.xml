@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdminStaffLists"></activity>
+        <activity android:name=".CreateReservation"></activity>
+        <activity android:name=".CustomerTableLists" />
+        <activity android:name=".AdminStaffLists" />
         <activity android:name=".DeleteTable" />
         <activity android:name=".AdminTableLists" />
         <activity android:name=".CreateTable" />

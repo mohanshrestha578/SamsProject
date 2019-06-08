@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void userlist(View view) {
 
-        startActivity(new Intent(getApplicationContext(), AdminTableLists.class));
+        startActivity(new Intent(getApplicationContext(), CustomerTableLists.class));
 //        startActivity(new Intent(getApplicationContext(), Addtable.class));
     }
 
