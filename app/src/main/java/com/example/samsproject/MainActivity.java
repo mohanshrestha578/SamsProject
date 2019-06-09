@@ -7,6 +7,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.support.v7.widget.Toolbar;
+import android.support.v4.view.GravityCompat;
 import android.view.View;
 
 import com.example.samsproject.Activities.AddCategory;
@@ -23,6 +25,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        drawer = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
  //       startActivity(new Intent(getApplicationContext(), Additem.class));
 //        startActivity(new Intent(getApplicationContext(), HomepageActivity.class));
 //        setContentView(R.layout.activity_main);
@@ -37,6 +49,16 @@ public class MainActivity extends AppCompatActivity {
 //            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)){
+            drawer.closeDrawer(GravityCompat.START);
+        }else {
+            super.onBackPressed();
+        }
+    }
+
 //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item) {
 //        if(myToogle.onOptionsItemSelected(item)){
@@ -46,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
     public void userlist(View view) {
-        startActivity(new Intent(getApplicationContext(), CustomerTableLists.class));
+        startActivity(new Intent(getApplicationContext(), Addstaff.class));
     }
 
     public void forgotPassword(View view) {

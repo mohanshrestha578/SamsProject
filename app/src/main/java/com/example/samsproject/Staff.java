@@ -9,11 +9,11 @@ public class Staff {
     private String staffPassword;
     private String StaffConfirmPassword;
     private String staffLocation;
+    private String role;
 
     public Staff(){}
 
-    public Staff(String staffId, String staffName, String staffPhoneNumber, String joinYear, String staffEmailAddress,
-                 String staffPassword, String staffConfirmPassword, String staffLocation) {
+    public Staff(String staffId, String staffName, String staffPhoneNumber, String joinYear, String staffEmailAddress, String staffPassword, String staffConfirmPassword, String staffLocation, String role) {
         this.staffId = staffId;
         this.staffName = staffName;
         this.staffPhoneNumber = staffPhoneNumber;
@@ -22,6 +22,7 @@ public class Staff {
         this.staffPassword = staffPassword;
         StaffConfirmPassword = staffConfirmPassword;
         this.staffLocation = staffLocation;
+        this.role = role;
     }
 
     public String getStaffId() {
@@ -54,5 +55,9 @@ public class Staff {
 
     public String getStaffLocation() {
         return staffLocation;
+    }
+
+    public String getRole() {
+        return role;
     }
 }

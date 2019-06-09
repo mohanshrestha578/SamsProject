@@ -6,10 +6,14 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.samsproject.Activities.RolesActivity;
+import com.example.samsproject.Models.Role;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,8 +33,11 @@ public class Addstaff extends AppCompatActivity {
     private EditText staffConfirmPassword;
     private EditText address;
     private Button addStaff;
+    private Spinner role_name;
 
     List<String> roles_list = new ArrayList<>();
+
+    ArrayAdapter<String> dataadapter;
 
     private DatabaseReference dbref;
 
@@ -47,9 +54,18 @@ public class Addstaff extends AppCompatActivity {
         staffConfirmPassword = findViewById(R.id.staffConfirmPassword);
         address = findViewById(R.id.staffLocation);
 
+        role_name = findViewById(R.id.roleSpinner);
+
         dbref = FirebaseDatabase.getInstance().getReference("Staff Information");
 
         addRolesOfStaff();
+
+        //initialize Adapter and set value
+        dataadapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, roles_list);
+        dataadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        role_name.setAdapter(dataadapter);
+        dataadapter.notifyDataSetChanged();
+
     }
 
     private void addRolesOfStaff() {
@@ -58,16 +74,19 @@ public class Addstaff extends AppCompatActivity {
         myref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                roles_list.clear();
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-
+                    Role ra = snapshot.getValue(Role.class);
+                    roles_list.add(ra.getRole_name());
                 }
+                dataadapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        })
+        });
     }
 
     public void addStaff(View view) {
@@ -78,6 +97,7 @@ public class Addstaff extends AppCompatActivity {
         String staffPass = staffPassword.getText().toString();
         String staffConPass = staffConfirmPassword.getText().toString();
         String staffLocation = address.getText().toString();
+        String roleSpinner = String.valueOf(role_name.getSelectedItem());
 
         if(TextUtils.isEmpty(staffName) && name.getText().length()<=3) {
             Toast.makeText(this, "Please, Enter the name of the staff", Toast.LENGTH_SHORT).show();
@@ -97,7 +117,7 @@ public class Addstaff extends AppCompatActivity {
             Toast.makeText(this, "Make sure your both password are correct", Toast.LENGTH_SHORT).show();
         }else{
                 String staffId = dbref.push().getKey();
-                Staff staff = new Staff(staffId, staffName, staffPhone, staffJoinYear, staffEmailAddress, staffPass, staffConPass, staffLocation);
+                Staff staff = new Staff(staffId, staffName, staffPhone, staffJoinYear, staffEmailAddress, staffPass, staffConPass, staffLocation, roleSpinner);
                 dbref.child(staffId).setValue(staff);
                 Toast.makeText(this, "Staff has been successfully added", Toast.LENGTH_SHORT).show();
                 name.setText("");
