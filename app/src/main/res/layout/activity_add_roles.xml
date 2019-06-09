@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.AddRolesActivity"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:id="@+id/label_add_role_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Role"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingLeft="5dp"/>
+        <EditText
+            android:id="@+id/add_role_name"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@id/label_add_role_name"
+            android:hint="E.g: Waiter"
+            android:inputType="text"
+            />
+        <Button
+            android:id="@+id/createRole_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/add_role_name"
+            android:layout_toLeftOf="@id/createRole_cancleBtn"
+            android:text="Add"
+            android:onClick="createRole"
+            />
+        <Button
+            android:id="@+id/createRole_cancleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/add_role_name"
+            android:layout_alignRight="@id/add_role_name"
+            android:text="Cancle"
+            android:onClick="cancelRole"
+            android:layout_marginLeft="10dp"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

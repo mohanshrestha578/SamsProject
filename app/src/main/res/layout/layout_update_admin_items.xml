@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/item_admin_update_imageLayout"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true">
+
+                <ImageView
+                    android:id="@+id/item_admin_update_choose_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/radius_img"
+                    />
+
+                <TextView
+                    android:id="@+id/item_admin_update_discount_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Discount"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"/>
+
+                <TextView
+                    android:id="@+id/item_admin_update_discount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="10%"
+                    android:layout_below="@id/item_admin_update_discount_label"
+                    android:paddingLeft="20dp"/>
+
+                <TextView
+                    android:id="@+id/item_admin_update_placement_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Placement"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@id/item_admin_update_discount"/>
+
+                <TextView
+                    android:id="@+id/item_admin_update_placement"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Our Special"
+                    android:layout_below="@id/item_admin_update_placement_label"
+                    android:paddingLeft="20dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/item_admin_update_infoLayout"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true">
+
+                <TextView
+                    android:id="@+id/item_name_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Item Name:"
+                    android:layout_marginTop="20dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/item_admin_update_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Buff Chowmein"
+                    android:paddingLeft="20dp"
+                    android:layout_below="@id/item_name_label"/>
+
+                <TextView
+                    android:id="@+id/item_category_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Item Category:"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:layout_below="@id/item_admin_update_name"/>
+
+                <TextView
+                    android:id="@+id/item_admin_update_category_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/item_category_label"
+                    android:paddingLeft="20dp"
+                    android:text="Mo:MO"/>
+
+                <TextView
+                    android:id="@+id/item_price_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Item Price:"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:layout_below="@id/item_admin_update_category_name"/>
+
+                <TextView
+                    android:id="@+id/item_admin_update_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Rs. 120"
+                    android:layout_below="@id/item_price_label"
+                    android:paddingLeft="20dp"/>
+
+                <TextView
+                    android:id="@+id/item_description_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Item Name:"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:layout_below="@id/item_admin_update_price"/>
+
+                <TextView
+                    android:id="@+id/item_admin_update_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/item_description_label"
+                    android:hint="Food Item's Description"
+                    android:paddingLeft="20dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_admin_update_infoLayout">
+
+                <View
+                    android:id="@+id/item_admin_update_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <RelativeLayout
+                    android:id="@+id/item_admin_update_reLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/item_admin_update_divider">
+
+                    <Button
+                        android:id="@+id/item_admin_update_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Update"
+                        android:onClick="uploadItem" />
+
+                    <Button
+                        android:id="@+id/item_admin_cancle_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="100dp"
+                        android:text="Cancle"
+                        android:onClick="cancleAddAdminItem"/>
+
+                </RelativeLayout>
+
+
+                <ProgressBar
+                    android:id="@+id/item_admin_update_progress_bar"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_below="@id/item_admin_update_reLayout"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

@@ -9,6 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.samsproject.Activities.AddCategory;
+import com.example.samsproject.Activities.Admin.Item;
+import com.example.samsproject.Activities.HomepageActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawer;
