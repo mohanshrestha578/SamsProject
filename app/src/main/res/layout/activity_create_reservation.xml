@@ -48,13 +48,21 @@
         android:text="Pick Date"
         android:layout_marginLeft="150dp"/>
 
-    <EditText
-        android:id="@+id/tableNumber"
-        android:layout_width="200dp"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Table Number: "
         android:layout_marginTop="5dp"
-        android:layout_height="50dp"
+        android:layout_marginLeft="90dp"
+        />
+
+    <TextView
+        android:id="@+id/tableNumber"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="-19dp"
+        android:layout_height="wrap_content"
         android:hint="Table Number"
-        android:layout_marginLeft="100dp" />
+        android:layout_marginLeft="190dp" />
 
     <EditText
         android:id="@+id/contactNumber"

@@ -4,19 +4,24 @@ public class Staff {
     private String staffId;
     private String staffName;
     private String staffPhoneNumber;
-    private String year;
+    private String joinYear;
     private String staffEmailAddress;
-    private String staffLoction;
+    private String staffPassword;
+    private String StaffConfirmPassword;
+    private String staffLocation;
 
     public Staff(){}
 
-    public Staff(String staffId, String staffName, String staffPhoneNumber, String year, String staffEmailAddress, String staffLoction) {
+    public Staff(String staffId, String staffName, String staffPhoneNumber, String joinYear, String staffEmailAddress,
+                 String staffPassword, String staffConfirmPassword, String staffLocation) {
         this.staffId = staffId;
         this.staffName = staffName;
         this.staffPhoneNumber = staffPhoneNumber;
-        this.year = year;
+        this.joinYear = joinYear;
         this.staffEmailAddress = staffEmailAddress;
-        this.staffLoction = staffLoction;
+        this.staffPassword = staffPassword;
+        StaffConfirmPassword = staffConfirmPassword;
+        this.staffLocation = staffLocation;
     }
 
     public String getStaffId() {
@@ -31,15 +36,23 @@ public class Staff {
         return staffPhoneNumber;
     }
 
-    public String getYear() {
-        return year;
+    public String getJoinYear() {
+        return joinYear;
     }
 
     public String getStaffEmailAddress() {
         return staffEmailAddress;
     }
 
-    public String getStaffLoction() {
-        return staffLoction;
+    public String getStaffPassword() {
+        return staffPassword;
+    }
+
+    public String getStaffConfirmPassword() {
+        return StaffConfirmPassword;
+    }
+
+    public String getStaffLocation() {
+        return staffLocation;
     }
 }

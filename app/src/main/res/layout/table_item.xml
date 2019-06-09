@@ -41,4 +41,13 @@
         android:layout_toRightOf="@id/numberOfSeatsText"
         android:text="TextView" />
 
+    <ImageButton
+        android:id="@+id/deleteTable"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="#fff"
+        android:outlineSpotShadowColor="#f00"
+        android:src="@drawable/ic_delete_forever_black_24dp"
+        android:layout_marginLeft="350dp"/>
+
 </RelativeLayout>

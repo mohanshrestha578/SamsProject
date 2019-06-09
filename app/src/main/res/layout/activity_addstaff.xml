@@ -12,14 +12,14 @@
     <ImageView
         android:layout_width="160dp"
         android:layout_height="127dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:src="@drawable/registerlogo"/>
 
     <EditText
         android:id="@+id/staffname"
         android:layout_width="190dp"
         android:layout_height="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:background="#ffffff"
         android:hint="Staff name"
         android:inputType="text"
@@ -56,6 +56,26 @@
         />
 
     <EditText
+        android:id="@+id/staffPassword"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="#ffffff"
+        android:hint="Password"
+        android:inputType="textEmailAddress"
+        />
+
+    <EditText
+        android:id="@+id/staffConfirmPassword"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="#ffffff"
+        android:hint="Confirm Password"
+        android:inputType="textEmailAddress"
+        />
+
+    <EditText
         android:id="@+id/staffLocation"
         android:layout_width="190dp"
         android:layout_height="40dp"
@@ -69,10 +89,16 @@
         android:id="@+id/register"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:hint="Register"
         android:onClick="addStaff"
-        />
+        android:background="#0f0"/>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+    </Spinner>
 
 </LinearLayout>
 

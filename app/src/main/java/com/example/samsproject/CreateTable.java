@@ -43,8 +43,8 @@ public class CreateTable extends AppCompatActivity {
             Toast.makeText(this, "Please, enter number of seats", Toast.LENGTH_SHORT).show();
         }else{
             String id = dbref.push().getKey();
-            Integer bookStatus = 0;
-            Table tb = new Table(numberOfTable, numberOfSeats, bookStatus);
+            String bookStatus = "unbooked";
+            Table tb = new Table(id, numberOfTable, numberOfSeats, bookStatus);
             dbref.child(id).setValue(tb);
             Toast.makeText(this, "Table successfully created", Toast.LENGTH_SHORT).show();
             tableNumber.setText("");
@@ -52,7 +52,4 @@ public class CreateTable extends AppCompatActivity {
         }
     }
 
-    public void deleteTable(View view) {
-        startActivity(new Intent(getApplicationContext(), DeleteTable.class));
-    }
 }

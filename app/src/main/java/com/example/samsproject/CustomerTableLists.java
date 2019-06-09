@@ -44,7 +44,6 @@ public class CustomerTableLists extends AppCompatActivity {
                 tableLists.clear();
 
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    Table tb = new Table();
                     Table tbo = snapshot.getValue(Table.class);
                     tableLists.add(tbo);
                 }
@@ -60,13 +59,7 @@ public class CustomerTableLists extends AppCompatActivity {
         });
     }
 
-    public void reserveTable(View view) {
-        Button btn = findViewById(R.id.reserveTable);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),CreateReservation.class));
-            }
-        });
-    }
+
+
+
 }

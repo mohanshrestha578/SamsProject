@@ -2,6 +2,7 @@ package com.example.samsproject;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,19 +20,21 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 
 public class CreateReservation extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
     private EditText reservationName;
     private TextView reservationTime;
     private TextView generatedDate;
-    private EditText tableNumber;
+    private TextView tableNumber;
     private EditText contactNo;
     private Button generateTime;
     private Button generateDate;
     private Button bookTable;
 
     private DatabaseReference dbref;
+    private DatabaseReference dbtab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +70,11 @@ public class CreateReservation extends AppCompatActivity implements DatePickerDi
         });
 
         dbref = FirebaseDatabase.getInstance().getReference("Reservation Details");
+        dbtab = FirebaseDatabase.getInstance().getReference("Table Information");
+
+        Intent intent = getIntent();
+        //sets the table number
+        tableNumber.setText(intent.getStringExtra("tableNumber"));
     }
 
     @Override
@@ -88,32 +96,45 @@ public class CreateReservation extends AppCompatActivity implements DatePickerDi
     }
 
     public void makeReservation(View view) {
-        String reservedName = reservationName.getText().toString();
-        String reservedTime = reservationTime.getText().toString();
-        String reservedDate = generatedDate.getText().toString();
-        String reservedTableNo = tableNumber.getText().toString();
-        String contact = contactNo.getText().toString();
+        Intent intent = getIntent();
+        Table table = new Table();
+        String tableId = intent.getStringExtra("tableId");
+        String tableNumber = intent.getStringExtra("tableNumber");
+        String tablestat = intent.getStringExtra("tableStatus");
 
-        if(TextUtils.isEmpty(reservedName)) {
-            Toast.makeText(this, "Please, Enter the name of the reservation", Toast.LENGTH_SHORT).show();
-        }else if(TextUtils.isEmpty(reservedTime)){
-            Toast.makeText(this, "Please,Enter the time of the reservation", Toast.LENGTH_SHORT).show();
-        }else if(TextUtils.isEmpty(reservedDate)){
-            Toast.makeText(this, "Please, Enter the date of the reservation", Toast.LENGTH_SHORT).show();
-        }else if(TextUtils.isEmpty(contact)){
-            Toast.makeText(this, "Please, Enter the contact number", Toast.LENGTH_SHORT).show();
+
+        if(tablestat.equals("unbooked")) {
+            String reservedName = reservationName.getText().toString();
+            String reservedTime = reservationTime.getText().toString();
+            String reservedDate = generatedDate.getText().toString();
+            String reservedTableNo = tableNumber;
+            String contact = contactNo.getText().toString();
+
+            if (TextUtils.isEmpty(reservedName)) {
+                Toast.makeText(this, "Please, Enter the name of the reservation", Toast.LENGTH_SHORT).show();
+            } else if (TextUtils.isEmpty(reservedTime)) {
+                Toast.makeText(this, "Please,Enter the time of the reservation", Toast.LENGTH_SHORT).show();
+            } else if (TextUtils.isEmpty(reservedDate)) {
+                Toast.makeText(this, "Please, Enter the date of the reservation", Toast.LENGTH_SHORT).show();
+            } else if (TextUtils.isEmpty(contact)) {
+                Toast.makeText(this, "Please, Enter the contact number", Toast.LENGTH_SHORT).show();
+            } else {
+                String reservationId = dbref.push().getKey();
+                Reservation reserve = new Reservation(reservedName, reservedTime, reservedDate, reservedTableNo, contact);
+                dbref.child(reservationId).setValue(reserve);
+                Toast.makeText(this, "You have successfully reserve a table in our restaurant", Toast.LENGTH_SHORT).show();
+                reservationName.setText("");
+                reservationTime.setText("");
+                generatedDate.setText("Date");
+                contactNo.setText("");
+                Table tb = new Table();
+                HashMap map = new HashMap();
+                map.put("bookStatus", "booked");
+                dbtab.child(tableId).updateChildren(map);
+
+            }
         }else{
-            String reservationId = dbref.push().getKey();
-            Reservation reserve = new Reservation(reservedName, reservedTime, reservedDate, reservedTableNo, contact);
-            dbref.child(reservationId).setValue(reserve);
-            Toast.makeText(this, "You have successfully reserve a table in our restaurant", Toast.LENGTH_SHORT).show();
-            Table tb = new Table();
-            tb.setBookStatus(1);
-            reservationName.setText("");
-            reservationTime.setText("");
-            generatedDate.setText("Date");
-            tableNumber.setText("");
-            contactNo.setText("");
+            Toast.makeText(this, "Table is already booked", Toast.LENGTH_SHORT).show();
         }
     }
 }

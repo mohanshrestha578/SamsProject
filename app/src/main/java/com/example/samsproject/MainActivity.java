@@ -23,14 +23,14 @@ public class MainActivity extends AppCompatActivity {
 //        startActivity(new Intent(getApplicationContext(), HomepageActivity.class));
 //        setContentView(R.layout.activity_main);
 //
-    //        drawer = findViewById(R.id.drawer);
-    //
-    //        myToogle = new ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close);
-    //
-    //        drawer.addDrawerListener(myToogle);
-    //        myToogle.syncState();
-    //
-    //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//            drawer = findViewById(R.id.drawer);
+//
+//            myToogle = new ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close);
+//
+//            drawer.addDrawerListener(myToogle);
+//            myToogle.syncState();
+//
+//            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 //    @Override
@@ -42,9 +42,7 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
     public void userlist(View view) {
-
         startActivity(new Intent(getApplicationContext(), CustomerTableLists.class));
-//        startActivity(new Intent(getApplicationContext(), Addtable.class));
     }
 
     public void forgotPassword(View view) {

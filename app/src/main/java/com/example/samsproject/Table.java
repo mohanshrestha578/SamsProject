@@ -1,18 +1,23 @@
 package com.example.samsproject;
 
 public class Table {
-
+    private String tableId;
     private String tableNumber;
     private String numberOfSeats;
-    private Integer bookStatus;
+    private String bookStatus;
 
     public Table() {
     }
 
-    public Table(String tableNumber, String numberOfSeats, Integer bookStatus) {
+    public Table(String tableId, String tableNumber, String numberOfSeats, String bookStatus) {
+        this.tableId = tableId;
         this.tableNumber = tableNumber;
         this.numberOfSeats = numberOfSeats;
         this.bookStatus = bookStatus;
+    }
+
+    public String getTableId() {
+        return tableId;
     }
 
     public String getTableNumber() {
@@ -23,7 +28,11 @@ public class Table {
         return numberOfSeats;
     }
 
-    public Integer getBookStatus(){ return bookStatus;}
+    public String getBookStatus(){ return bookStatus;}
+
+    public void setTableId(String tableId) {
+        this.tableId = tableId;
+    }
 
     public void setTableNumber(String tableNumber) {
         this.tableNumber = tableNumber;
@@ -33,7 +42,7 @@ public class Table {
         this.numberOfSeats = numberOfSeats;
     }
 
-    public void setBookStatus(Integer bookStatus) {
+    public void setBookStatus(String bookStatus) {
         this.bookStatus = bookStatus;
     }
 }
