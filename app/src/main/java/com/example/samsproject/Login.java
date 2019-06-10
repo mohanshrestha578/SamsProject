@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.samsproject.Activities.CategoryActivity;
 import com.example.samsproject.Activities.HomepageActivity;
+import com.example.samsproject.Activities.RegisterActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -51,7 +52,7 @@ public class Login extends AppCompatActivity {
     }
 
     private void updateUI(FirebaseUser currentUser) {
-        if(!TextUtils.isEmpty(currentUser.getEmail())){
+        if(currentUser != null){
             startActivity(new Intent(this, HomepageActivity.class));
         }
     }
@@ -106,7 +107,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void registerPage(View view) {
-        startActivity(new Intent(getApplicationContext(), CategoryActivity.class));
+        startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
     }
 
     public void startLoader(ProgressDialog progress){

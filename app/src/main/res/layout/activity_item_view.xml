@@ -95,7 +95,8 @@
                             android:text="Add"
                             android:drawableLeft="@drawable/ic_shopping_cart_black_24dp"
                             android:drawablePadding="5dp"
-                            android:layout_alignParentRight="true"/>
+                            android:layout_alignParentRight="true"
+                            android:onClick="addToCart"/>
 
                     </RelativeLayout>
 

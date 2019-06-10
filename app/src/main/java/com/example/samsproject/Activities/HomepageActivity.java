@@ -1,22 +1,29 @@
 package com.example.samsproject.Activities;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.samsproject.Models.Category;
 import com.example.samsproject.Models.ModelItem;
+import com.example.samsproject.Models.User;
 import com.example.samsproject.R;
 import com.example.samsproject.RecyclerViews.RecyclerViewItem;
 import com.example.samsproject.RecyclerViews.RecyclerViewOffers;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -25,15 +32,9 @@ public class HomepageActivity extends AppCompatActivity {
 
     private static final String TAG = "HomepageActivity";
 
-    private ArrayList<String> mTitle = new ArrayList<>();
-    private ArrayList<String> mPrice = new ArrayList<>();
-    private ArrayList<String> mImageUrls = new ArrayList<>();
+    private ArrayList<ModelItem> mItemDetails = new ArrayList<>();
 
-    private ArrayList<String> offer_image = new ArrayList<>();
-    private ArrayList<String> offer_title = new ArrayList<>();
-    private ArrayList<String> offer_price = new ArrayList<>();
-    private ArrayList<String> offer_discount = new ArrayList<>();
-    private ArrayList<String> offer_category = new ArrayList<>();
+    private ArrayList<ModelItem> offer_items = new ArrayList<>();
 
     ProgressDialog progress;
 
@@ -48,7 +49,14 @@ public class HomepageActivity extends AppCompatActivity {
 
         dbR = FirebaseDatabase.getInstance().getReference("Items");
 
-        startLoader(progress);
+        FirebaseUser fUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        SharedPreferences prefs = getSharedPreferences("user_info", MODE_PRIVATE);
+        String restoredText = prefs.getString("uuid", null);
+
+        if(restoredText == null){
+            setAllUserData(fUser.getUid());
+        }
 
         getImages();
         getOffers();
@@ -56,7 +64,39 @@ public class HomepageActivity extends AppCompatActivity {
 
     }
 
+    private void setAllUserData(final String restoredText) {
+        final Context c = this;
+        Query dbUser = FirebaseDatabase.getInstance()
+                .getReference("users").orderByChild("uuid").equalTo(restoredText);
+        dbUser.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+                    User user = postSnapshot.getValue(User.class);
+
+                    if(!user.getId().isEmpty()){
+                        SharedPreferences.Editor editor = getSharedPreferences("user_info", MODE_PRIVATE).edit();
+                        editor.putString("id", user.getId());
+                        editor.putString("uuid", restoredText);
+                        editor.putString("username", user.getName());
+                        editor.apply();
+
+                        Toast.makeText(c, restoredText, Toast.LENGTH_LONG).show();
+                    }
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
     private void getImages(){
+        startLoader(progress);
+
         Log.d(TAG, "initImageBitmaps: ");
 
         dbR.addValueEventListener(new ValueEventListener() {
@@ -64,14 +104,13 @@ public class HomepageActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                mTitle.clear();
-                mPrice.clear();
+                mItemDetails.clear();
 
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     ModelItem item = postSnapshot.getValue(ModelItem.class);
-                    mTitle.add(item.getName());
-                    mPrice.add(item.getPrice());
-                    mImageUrls.add(item.getImageUrl());
+                    if(item.getPlacement().equals("Our Special")){
+                        mItemDetails.add(item);
+                    }
                 }
 
                 initRecyclerViewItem();
@@ -94,7 +133,7 @@ public class HomepageActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.homepage_rv_special);
         recyclerView.setLayoutManager(layoutManager);
-        RecyclerViewItem viewItem = new RecyclerViewItem(this, mTitle, mImageUrls, mPrice);
+        RecyclerViewItem viewItem = new RecyclerViewItem(this, mItemDetails);
         recyclerView.setAdapter(viewItem);
     }
 
@@ -107,19 +146,13 @@ public class HomepageActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                offer_title.clear();
-                offer_price.clear();
-                offer_discount.clear();
-                offer_category.clear();
-                offer_image.clear();
+                offer_items.clear();
 
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     ModelItem item = postSnapshot.getValue(ModelItem.class);
-                    offer_title.add(item.getName());
-                    offer_price.add(item.getPrice());
-                    offer_discount.add("0");
-                    offer_category.add(item.getCategory_name());
-                    offer_image.add(item.getImageUrl());
+                    if(item.getPlacement().equals("Offers") || item.getDiscount() > 0){
+                        offer_items.add(item);
+                    }
                 }
 
                 initRecyclerViewOffers();
@@ -149,7 +182,7 @@ public class HomepageActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.homepage_rv_offers);
         recyclerView.setLayoutManager(layoutManager);
-        RecyclerViewOffers viewItem = new RecyclerViewOffers(offer_title, offer_image, offer_price, offer_discount, offer_category, this);
+        RecyclerViewOffers viewItem = new RecyclerViewOffers(offer_items, this);
         recyclerView.setAdapter(viewItem);
 
         endLoader(progress);

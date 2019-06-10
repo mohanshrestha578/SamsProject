@@ -72,7 +72,7 @@
                         android:padding="10dp"
                         android:inputType="textEmailAddress"
                         android:background="@android:color/transparent"
-                        android:hint="Email or Phone number"
+                        android:hint="Email Address"
                         android:drawableLeft="@drawable/ic_perm_identity"
                         android:drawablePadding="30dp"/>
 

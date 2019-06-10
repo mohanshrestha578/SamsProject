@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".Activities.RegisterActivity">
 
     <ImageView
         android:id="@+id/loginHeader"
@@ -77,15 +77,33 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp">
                 <EditText
+                    android:id="@+id/reg_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:padding="10dp"
+                    android:background="@android:color/transparent"
+                    android:hint="Email Address"
+                    android:inputType="textEmailAddress"
+                    android:drawableLeft="@drawable/ic_perm_identity"
+                    android:drawablePadding="30dp"/>
+                <View
+                    android:id="@+id/login_view0"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#71d2d2d2"
+                    android:layout_below="@id/reg_email"/>
+                <EditText
                     android:id="@+id/reg_username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:padding="10dp"
                     android:background="@android:color/transparent"
-                    android:hint="Email or Phone number"
+                    android:hint="Your Name"
                     android:inputType="textEmailAddress"
                     android:drawableLeft="@drawable/ic_perm_identity"
+                    android:layout_below="@+id/login_view0"
                     android:drawablePadding="30dp"/>
                 <View
                     android:id="@+id/login_view1"

@@ -12,6 +12,8 @@ import android.view.View;
 import com.example.samsproject.Activities.AddCategory;
 import com.example.samsproject.Activities.Admin.Item;
 import com.example.samsproject.Activities.HomepageActivity;
+import com.example.samsproject.Activities.OrderViewActivity;
+import com.example.samsproject.Activities.RegisterActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-        startActivity(new Intent(getApplicationContext(), Additem.class));
+//        setContentView(R.layout.main_layout);
+        startActivity(new Intent(getApplicationContext(), HomepageActivity.class));
 //        startActivity(new Intent(getApplicationContext(), HomepageActivity.class));
 //        setContentView(R.layout.activity_main);
 //

@@ -13,12 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activities.OrderViewActivity"></activity>
         <activity
             android:name=".Activities.AddRolesActivity"
-            android:theme="@style/AppTheme.FullScreen"></activity>
+            android:theme="@style/AppTheme.FullScreen" />
         <activity
             android:name=".Activities.RolesActivity"
-            android:theme="@style/AppTheme.FullScreen"/>
+            android:theme="@style/AppTheme.FullScreen" />
         <activity
             android:name=".Activities.CategoryActivity"
             android:theme="@style/AppTheme.FullScreen" />
@@ -33,10 +34,9 @@
         <activity android:name=".Addstaff" />
         <activity
             android:name=".Additem"
-            android:theme="@style/AppTheme.FullScreen"
-            />
+            android:theme="@style/AppTheme.FullScreen" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".Activities.RegisterActivity"
             android:theme="@style/AppTheme.FullScreen" />
         <activity
             android:name=".Activities.HomepageActivity"
@@ -55,7 +55,7 @@
         </activity>
         <activity
             android:name=".Activities.Admin.Item"
-            android:theme="@style/AppTheme.FullScreen"/>
+            android:theme="@style/AppTheme.FullScreen" />
     </application>
 
 </manifest>

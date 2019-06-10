@@ -15,14 +15,15 @@
 
             <RelativeLayout
                 android:id="@+id/item_admin_update_imageLayout"
-                android:layout_width="200dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true">
+                android:layout_alignParentLeft="true"
+                android:gravity="left">
 
                 <ImageView
                     android:id="@+id/item_admin_update_choose_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
                     android:background="@drawable/radius_img"
                     />
 
@@ -32,7 +33,8 @@
                     android:layout_height="wrap_content"
                     android:text="Discount"
                     android:textStyle="bold"
-                    android:layout_marginTop="20dp"/>
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@id/item_admin_update_choose_image"/>
 
                 <TextView
                     android:id="@+id/item_admin_update_discount"
@@ -63,9 +65,10 @@
 
             <RelativeLayout
                 android:id="@+id/item_admin_update_infoLayout"
-                android:layout_width="200dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true">
+                android:paddingLeft="20dp"
+                android:layout_toRightOf="@id/item_admin_update_imageLayout">
 
                 <TextView
                     android:id="@+id/item_name_label"
@@ -116,14 +119,21 @@
                     android:layout_below="@id/item_price_label"
                     android:paddingLeft="20dp"/>
 
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/item_admin_update_descLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_admin_update_imageLayout">
+
                 <TextView
                     android:id="@+id/item_description_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Item Name:"
+                    android:text="Item Description:"
                     android:layout_marginTop="10dp"
-                    android:textStyle="bold"
-                    android:layout_below="@id/item_admin_update_price"/>
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/item_admin_update_description"
@@ -138,7 +148,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/item_admin_update_infoLayout">
+                android:layout_below="@id/item_admin_update_descLayout">
 
                 <View
                     android:id="@+id/item_admin_update_divider"
@@ -154,30 +164,14 @@
                     android:layout_below="@id/item_admin_update_divider">
 
                     <Button
-                        android:id="@+id/item_admin_update_btn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:text="Update"
-                        android:onClick="uploadItem" />
-
-                    <Button
                         android:id="@+id/item_admin_cancle_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:layout_marginLeft="100dp"
-                        android:text="Cancle"
+                        android:text="Close"
                         android:onClick="cancleAddAdminItem"/>
 
                 </RelativeLayout>
-
-
-                <ProgressBar
-                    android:id="@+id/item_admin_update_progress_bar"
-                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:layout_below="@id/item_admin_update_reLayout"/>
 
             </RelativeLayout>
 
