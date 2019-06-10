@@ -1,6 +1,7 @@
 package com.example.samsproject.RecyclerViews;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -8,9 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
+import com.example.samsproject.ItemViewActivity;
+import com.example.samsproject.Models.ModelItem;
 import com.example.samsproject.R;
 
 import java.util.ArrayList;
@@ -20,20 +26,12 @@ public class RecyclerViewOffers extends RecyclerView.Adapter<RecyclerViewOffers.
     private static final String TAG = "RecyclerViewOffers";
 
     // vars
-    private ArrayList<String> mTitle = new ArrayList<>();
-    private ArrayList<String> mImageUrls = new ArrayList<>();
-    private ArrayList<String> mPrice = new ArrayList<>();
-    private ArrayList<String> mDiscount = new ArrayList<>();
-    private ArrayList<String> mCategory = new ArrayList<>();
+    private ArrayList<ModelItem> mItems = new ArrayList<>();
     private Context mContext;
 
-    public RecyclerViewOffers(ArrayList<String> mTitle, ArrayList<String> mImageUrls, ArrayList<String> mPrice, ArrayList<String> mDiscount, ArrayList<String> mCategory, Context mContext) {
-        this.mTitle = mTitle;
-        this.mImageUrls = mImageUrls;
-        this.mPrice = mPrice;
-        this.mDiscount = mDiscount;
-        this.mCategory = mCategory;
+    public RecyclerViewOffers(ArrayList<ModelItem> mItems, Context mContext) {
         this.mContext = mContext;
+        this.mItems = mItems;
     }
 
     @NonNull
@@ -46,20 +44,44 @@ public class RecyclerViewOffers extends RecyclerView.Adapter<RecyclerViewOffers.
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewOffers.ViewHolder viewHolder, int i) {
         Log.d(TAG, "onBindViewHolder: ");
+
+        final Integer pos = i;
+
         Glide.with(mContext)
                 .asBitmap()
-                .load(mImageUrls.get(i))
+                .load(mItems.get(i).getImageUrl())
+                .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.ALL))
                 .into(viewHolder.image);
 
-        viewHolder.title.setText(mTitle.get(i));
-        viewHolder.category.setText(mCategory.get(i));
-        viewHolder.price.setText(mPrice.get(i));
-        viewHolder.discount.setText(mDiscount.get(i));
+        String price = "Rs." + mItems.get(i).getPrice();
+        String dis = mItems.get(i).getDiscount() + " % Off";
+
+        viewHolder.title.setText(mItems.get(i).getName());
+        viewHolder.category.setText(mItems.get(i).getCategory_name());
+        viewHolder.price.setText(price);
+        viewHolder.discount.setText(dis);
+
+        viewHolder.itemOfferLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, ItemViewActivity.class);
+                intent.putExtra("id", mItems.get(pos).getId());
+                intent.putExtra("name", mItems.get(pos).getName());
+                intent.putExtra("imageUrl", mItems.get(pos).getImageUrl());
+                intent.putExtra("price", mItems.get(pos).getPrice());
+                intent.putExtra("description", mItems.get(pos).getDescription());
+                intent.putExtra("discount", mItems.get(pos).getDiscount());
+                intent.putExtra("category_id", mItems.get(pos).getCategory_id());
+                intent.putExtra("category_name", mItems.get(pos).getCategory_name());
+
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return mTitle.size();
+        return mItems.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -69,6 +91,7 @@ public class RecyclerViewOffers extends RecyclerView.Adapter<RecyclerViewOffers.
         TextView category;
         TextView price;
         TextView discount;
+        RelativeLayout itemOfferLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -77,6 +100,7 @@ public class RecyclerViewOffers extends RecyclerView.Adapter<RecyclerViewOffers.
             category = itemView.findViewById(R.id.offer_food_category);
             price = itemView.findViewById(R.id.offer_food_price);
             discount = itemView.findViewById(R.id.offer_discount);
+            itemOfferLayout = itemView.findViewById(R.id.itemOfferLayout);
         }
     }
 

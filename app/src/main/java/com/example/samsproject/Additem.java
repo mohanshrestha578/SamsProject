@@ -25,8 +25,11 @@ import com.example.samsproject.Activities.AddCategory;
 import com.example.samsproject.Activities.Admin.Item;
 import com.example.samsproject.Models.Category;
 import com.example.samsproject.Models.ModelItem;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -96,19 +99,10 @@ public class Additem extends AppCompatActivity {
         placement_list.add("Offer");
         placement_list.add("Our Special");
 
-        mProgressBar = findViewById(R.id.item_admin_create_progress_bar);
-
         category_name = findViewById(R.id.item_admin_create_category_name);
 
         mStorageRef = FirebaseStorage.getInstance().getReference("imageUploads");
         mDataRef = FirebaseDatabase.getInstance().getReference("Items");
-
-        mStorageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                image_uri = uri.toString();
-            }
-        });
 
         // initialize Adapter and set value
         dataAdapter = new ArrayAdapter<>(this,
@@ -179,52 +173,95 @@ public class Additem extends AppCompatActivity {
             setUpModel();
 
             if (mImageUri != null) {
-                StorageReference fileReference = mStorageRef.child(System.currentTimeMillis() + "." + getFileExtension(mImageUri));
+                final StorageReference fileReference = mStorageRef.child(System.currentTimeMillis() + "." + getFileExtension(mImageUri));
 
-                mUploadTask = fileReference.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                final StorageReference ref = mStorageRef.child(System.currentTimeMillis() + "." + getFileExtension(mImageUri));
+                UploadTask uploadTask = ref.putFile(mImageUri);
+
+                Task urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        Handler handler = new Handler();
+                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                        if (!task.isSuccessful()) {
+                            throw task.getException();
+                        }
 
-                        String uploadId = mDataRef.push().getKey();
+                        // Continue with the task to get the download URL
+                        return ref.getDownloadUrl();
+                    }
+                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Uri> task) {
+                        if (task.isSuccessful()) {
 
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                mProgressBar.setProgress(0);
-                            }
-                        }, 500);
-                        Toast.makeText(Additem.this, "Upload Successful", Toast.LENGTH_SHORT).show();
+                            Uri downloadUri = task.getResult();
 
+                            String uploadId = mDataRef.push().getKey();
 
-
-                        ModelItem uploadImage = new ModelItem(uploadId, item_name.getText().toString().trim(),
+                            ModelItem uploadImage = new ModelItem(uploadId, item_name.getText().toString().trim(),
                                 price.getText().toString().trim(),
-                                image_uri,
+                                downloadUri.toString(),
                                 description.getText().toString().trim(),
                                 saveCatDetails.getId(),
                                 saveCatDetails.getCategory_name(),
                                 Integer.parseInt(discount.getText().toString()),
                                 String.valueOf(placement.getSelectedItem()));
 
-                        mDataRef.child(uploadId).setValue(uploadImage);
+                            mDataRef.child(uploadId).setValue(uploadImage);
 
-                        endLoader(progress);
-                        emptyAllFields();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        endLoader(progress);
-                        Toast.makeText(Additem.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                        double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-                        mProgressBar.setProgress((int) progress);
+                            endLoader(progress);
+                            Toast.makeText(Additem.this, "Upload Successful", Toast.LENGTH_SHORT).show();
+                            emptyAllFields();
+
+                        } else {
+                            Toast.makeText(Additem.this, "Error Uploading File!", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
+
+//                mUploadTask = fileReference.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+//                    @Override
+//                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+//                        Handler handler = new Handler();
+//
+//                        String uploadId = mDataRef.push().getKey();
+//
+//                        handler.postDelayed(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                mProgressBar.setProgress(0);
+//                            }
+//                        }, 500);
+//                        Toast.makeText(Additem.this, "Upload Successful", Toast.LENGTH_SHORT).show();
+//
+//                        ModelItem uploadImage = new ModelItem(uploadId, item_name.getText().toString().trim(),
+//                                price.getText().toString().trim(),
+//                                fileReference.getDownloadUrl().toString(),
+//                                description.getText().toString().trim(),
+//                                saveCatDetails.getId(),
+//                                saveCatDetails.getCategory_name(),
+//                                Integer.parseInt(discount.getText().toString()),
+//                                String.valueOf(placement.getSelectedItem()));
+//
+//                        mDataRef.child(uploadId).setValue(uploadImage);
+//
+//                        endLoader(progress);
+//                        emptyAllFields();
+//
+//                    }
+//                }).addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        endLoader(progress);
+//                        Toast.makeText(Additem.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+//                    }
+//                }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+//                    @Override
+//                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+//                        double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+//                        mProgressBar.setProgress((int) progress);
+//                    }
+//                });
+
             } else {
                 Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
             }
@@ -283,7 +320,6 @@ public class Additem extends AppCompatActivity {
     }
 
     private void openFileChooser() {
-
         Intent intent = new Intent();
         intent.setType("image/*");//view only image file
         intent.setAction(Intent.ACTION_GET_CONTENT);

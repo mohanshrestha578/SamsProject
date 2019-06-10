@@ -1,6 +1,7 @@
 package com.example.samsproject.RecyclerViews;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -8,8 +9,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
+import com.example.samsproject.ItemViewActivity;
+import com.example.samsproject.Models.ModelItem;
 import com.example.samsproject.R;
 import com.squareup.picasso.Picasso;
 
@@ -21,15 +29,11 @@ public class RecyclerViewRecommend extends RecyclerView.Adapter<RecyclerViewReco
 
     // vars
     private Context mContext;
-    private ArrayList<String> mTitle = new ArrayList<>();
-    private ArrayList<String> mImageUrls = new ArrayList<>();
-    private ArrayList<String> mPrice = new ArrayList<>();
+    private ArrayList<ModelItem> mItems = new ArrayList<>();
 
-    public RecyclerViewRecommend(Context mContext, ArrayList<String> mTitle, ArrayList<String> mImageUrls, ArrayList<String> mPrice) {
+    public RecyclerViewRecommend(Context mContext, ArrayList<ModelItem> mItems) {
         this.mContext = mContext;
-        this.mTitle = mTitle;
-        this.mImageUrls = mImageUrls;
-        this.mPrice = mPrice;
+        this.mItems = mItems;
     }
 
     @NonNull
@@ -43,16 +47,39 @@ public class RecyclerViewRecommend extends RecyclerView.Adapter<RecyclerViewReco
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Log.d(TAG, "onBindViewHolder: ");
 
+        final Integer pos = i;
 
-        Picasso.get().load(mImageUrls.get(i)).into(viewHolder.image);
+        Glide.with(mContext)
+                .load(mItems.get(i).getImageUrl())
+                .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.ALL))
+                .into(viewHolder.image);
 
-        viewHolder.title.setText(mTitle.get(i));
-        viewHolder.price.setText(mPrice.get(i));
+        String price = "Rs." + mItems.get(i).getPrice();
+
+        viewHolder.title.setText(mItems.get(i).getName());
+        viewHolder.price.setText(price);
+
+        viewHolder.recommendLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, ItemViewActivity.class);
+                intent.putExtra("id", mItems.get(pos).getId());
+                intent.putExtra("name", mItems.get(pos).getName());
+                intent.putExtra("imageUrl", mItems.get(pos).getImageUrl());
+                intent.putExtra("price", mItems.get(pos).getPrice());
+                intent.putExtra("description", mItems.get(pos).getDescription());
+                intent.putExtra("discount", mItems.get(pos).getDiscount());
+                intent.putExtra("category_id", mItems.get(pos).getCategory_id());
+                intent.putExtra("category_name", mItems.get(pos).getCategory_name());
+
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return mTitle.size();
+        return mItems.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -60,12 +87,14 @@ public class RecyclerViewRecommend extends RecyclerView.Adapter<RecyclerViewReco
         ImageView image;
         TextView title;
         TextView price;
+        RelativeLayout recommendLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.recommend_dish_image);
             title = itemView.findViewById(R.id.recommend_dish_name);
             price = itemView.findViewById(R.id.recommend_dish_price);
+            recommendLayout = itemView.findViewById(R.id.recommendLayout);
         }
     }
 

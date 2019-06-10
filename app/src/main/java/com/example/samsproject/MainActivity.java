@@ -14,6 +14,8 @@ import android.view.View;
 import com.example.samsproject.Activities.AddCategory;
 import com.example.samsproject.Activities.Admin.Item;
 import com.example.samsproject.Activities.HomepageActivity;
+import com.example.samsproject.Activities.OrderViewActivity;
+import com.example.samsproject.Activities.RegisterActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,17 +26,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        setContentView(R.layout.main_layout);
+        startActivity(new Intent(getApplicationContext(), HomepageActivity.class));
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//
+//        drawer = findViewById(R.id.drawer_layout);
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+//                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//
+//        drawer.addDrawerListener(toggle);
+//        toggle.syncState();
  //       startActivity(new Intent(getApplicationContext(), Additem.class));
 //        startActivity(new Intent(getApplicationContext(), HomepageActivity.class));
 //        setContentView(R.layout.activity_main);
@@ -50,14 +54,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.START)){
-            drawer.closeDrawer(GravityCompat.START);
-        }else {
-            super.onBackPressed();
-        }
-    }
+//    @Override
+//    public void onBackPressed() {
+//        if (drawer.isDrawerOpen(GravityCompat.START)){
+//            drawer.closeDrawer(GravityCompat.START);
+//        }else {
+//            super.onBackPressed();
+//        }
+//    }
 
 //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item) {
@@ -68,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
     public void userlist(View view) {
-        startActivity(new Intent(getApplicationContext(), Addstaff.class));
+        startActivity(new Intent(getApplicationContext(), OrderViewActivity.class));
     }
 
     public void forgotPassword(View view) {

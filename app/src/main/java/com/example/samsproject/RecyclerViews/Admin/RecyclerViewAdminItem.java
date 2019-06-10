@@ -17,6 +17,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.samsproject.Models.Category;
 import com.example.samsproject.Models.ModelItem;
 import com.example.samsproject.R;
@@ -78,7 +81,7 @@ public class RecyclerViewAdminItem extends RecyclerView.Adapter<RecyclerViewAdmi
 
             @Override
             public void onClick(View v) {
-                showUpdateDialog(item.getId(), item.getName(), item.getPrice(), item.getDescription(), item.getCategory_name(), item.getDiscount(), item.getPlacement());
+                showUpdateDialog(item.getId(), item.getImageUrl(), item.getName(), item.getPrice(), item.getDescription(), item.getCategory_name(), item.getDiscount(), item.getPlacement());
             }
         });
     }
@@ -93,7 +96,6 @@ public class RecyclerViewAdminItem extends RecyclerView.Adapter<RecyclerViewAdmi
         TextView sn;
         TextView item_name;
 
-        Button view_btn;
         Button edit_btn;
         Button del_btn;
 
@@ -102,25 +104,31 @@ public class RecyclerViewAdminItem extends RecyclerView.Adapter<RecyclerViewAdmi
             sn = itemView.findViewById(R.id.list_admin_item_sn);
             item_name = itemView.findViewById(R.id.list_admin_item_name);
 
-            view_btn = itemView.findViewById(R.id.list_admin_item_viewBtn);
             edit_btn = itemView.findViewById(R.id.list_admin_item_editBtn);
             del_btn = itemView.findViewById(R.id.list_admin_item_delBtn);
         }
     }
 
-    private void showUpdateDialog(final String categoryId, String item_name, String price, String description, String category_name, Integer discount, String placement) {
+    private void showUpdateDialog(final String categoryId, String imageUrl, String item_name, String price, String description, String category_name, Integer discount, String placement) {
 
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
         LayoutInflater inflater = LayoutInflater.from(context);
         final View dialogView = inflater.inflate(R.layout.layout_update_admin_items, null);
         dialogBuilder.setView(dialogView);
 
+        final ImageView editImageUrl = dialogView.findViewById(R.id.item_admin_update_choose_image);
+
+        Glide.with(context)
+                .load(imageUrl)
+                .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.ALL))
+                .into(editImageUrl);
+
         final TextView editTextName = (TextView) dialogView.findViewById(R.id.item_admin_update_name);
         final TextView editPrice = (TextView) dialogView.findViewById(R.id.item_admin_update_price);
         final TextView editDescription = (TextView) dialogView.findViewById(R.id.item_admin_update_description);
         final TextView editDiscount = dialogView.findViewById(R.id.item_admin_update_discount);
         final TextView editPlacement = dialogView.findViewById(R.id.item_admin_update_placement);
-        final ImageView editImageUrl = dialogView.findViewById(R.id.item_admin_update_choose_image);
+
 
         categories = (TextView) dialogView.findViewById(R.id.item_admin_update_category_name);
 
@@ -133,25 +141,11 @@ public class RecyclerViewAdminItem extends RecyclerView.Adapter<RecyclerViewAdmi
 
         addItemsOnCategory();
 
-        final Button buttonUpdate = (Button) dialogView.findViewById(R.id.item_admin_update_btn);
         final Button buttonCancle = (Button) dialogView.findViewById(R.id.item_admin_cancle_btn);
 
-        dialogBuilder.setTitle("Update Food Item Name");
+        dialogBuilder.setTitle("Food Item Details");
         final AlertDialog b = dialogBuilder.create();
         b.show();
-
-
-        buttonUpdate.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                String name = editTextName.getText().toString().trim();
-                if (!TextUtils.isEmpty(name)) {
-                    updateCategory(categoryId, name);
-                    b.dismiss();
-                }
-            }
-        });
 
 
         buttonCancle.setOnClickListener(new View.OnClickListener() {
@@ -183,16 +177,6 @@ public class RecyclerViewAdminItem extends RecyclerView.Adapter<RecyclerViewAdmi
 
             }
         });
-
-    }
-
-    private void updateCategory(String id, String name){
-        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("categories").child(id);
-
-        Category category = new Category(id, name);
-        dbRef.setValue(category);
-
-        Toast.makeText(context, "Category Updated", Toast.LENGTH_LONG).show();
 
     }
 
