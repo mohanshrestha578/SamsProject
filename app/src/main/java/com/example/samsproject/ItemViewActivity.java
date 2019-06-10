@@ -211,8 +211,7 @@ public class ItemViewActivity extends AppCompatActivity {
                                 username = prefs.getString("username", "Angnima");
                             }
 
-                            Order order = new Order(
-                                    id,
+                            Order order = new Order(id,
                                     user_id,
                                     username,
                                     item_id,
@@ -220,7 +219,9 @@ public class ItemViewActivity extends AppCompatActivity {
                                     price_int,
                                     quantity,
                                     extra_url,
-                                    item_dis
+                                    item_dis,
+                                    "cart added",
+                                    ""
                             );
 
                             orderDb.child(id).setValue(order);

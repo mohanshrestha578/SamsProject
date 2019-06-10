@@ -3,6 +3,7 @@ package com.example.samsproject;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -120,7 +121,12 @@ public class CreateReservation extends AppCompatActivity implements DatePickerDi
                 Toast.makeText(this, "Please, Enter the contact number", Toast.LENGTH_SHORT).show();
             } else {
                 String reservationId = dbref.push().getKey();
-                Reservation reserve = new Reservation(reservedName, reservedTime, reservedDate, reservedTableNo, contact);
+
+                SharedPreferences prefs = getSharedPreferences("user_info", MODE_PRIVATE);
+                String uuid = prefs.getString("uuid", null);
+                String user_name = prefs.getString("username", null);
+
+                Reservation reserve = new Reservation(reservedName, reservedTime, reservedDate, reservedTableNo, contact, user_name, uuid);
                 dbref.child(reservationId).setValue(reserve);
                 Toast.makeText(this, "You have successfully reserve a table in our restaurant", Toast.LENGTH_SHORT).show();
                 reservationName.setText("");

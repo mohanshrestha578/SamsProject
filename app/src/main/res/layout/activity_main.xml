@@ -28,5 +28,25 @@
         //app:layout_behaviour="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"//
     </android.support.v4.view.ViewPager>
 
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Add button"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:onClick="userlist"/>-->
+            <include android:id="@+id/addstaf" layout="@layout/activity_addstaff"/>
+        </FrameLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_menu_customer"></android.support.design.widget.NavigationView>
 
 </LinearLayout>

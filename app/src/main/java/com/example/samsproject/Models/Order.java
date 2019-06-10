@@ -4,7 +4,7 @@ public class Order {
 
     public Order(){}
 
-    public Order(String id, String user_id, String username, String item_id, String item_name, Integer item_price, Integer quantity, String image, Integer discount) {
+    public Order(String id, String user_id, String username, String item_id, String item_name, Integer item_price, Integer quantity, String image, Integer discount, String status, String tableNumber) {
         this.id = id;
         this.user_id = user_id;
         this.username = username;
@@ -14,6 +14,8 @@ public class Order {
         this.quantity = quantity;
         this.image = image;
         this.discount = discount;
+        this.status = status;
+        this.tableNumber = tableNumber;
     }
 
     private String id;
@@ -25,6 +27,10 @@ public class Order {
     private Integer quantity;
     private String image;
     private Integer discount;
+    private String status;
+    private String tableNumber;
+
+
 
     public String getId() {
         return id;
@@ -96,5 +102,21 @@ public class Order {
 
     public void setDiscount(Integer discount) {
         this.discount = discount;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getTableNumber() {
+        return tableNumber;
+    }
+
+    public void setTableNumber(String tableNumber) {
+        this.tableNumber = tableNumber;
     }
 }

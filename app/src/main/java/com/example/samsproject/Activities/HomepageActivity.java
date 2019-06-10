@@ -52,7 +52,7 @@ public class HomepageActivity extends AppCompatActivity {
         FirebaseUser fUser = FirebaseAuth.getInstance().getCurrentUser();
 
         SharedPreferences prefs = getSharedPreferences("user_info", MODE_PRIVATE);
-        String restoredText = prefs.getString("uuid", null);
+        String restoredText = prefs.getString("uuid", "JmUA13HrYnPCDnR6jcBO2xkKBm43");
 
         if(restoredText == null){
             setAllUserData(fUser.getUid());

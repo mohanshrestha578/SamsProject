@@ -57,14 +57,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.START)){
-            drawer.closeDrawer(GravityCompat.START);
-        }else {
-            super.onBackPressed();
-        }
-    }
+//    @Override
+//    public void onBackPressed() {
+//        if (drawer.isDrawerOpen(GravityCompat.START)){
+//            drawer.closeDrawer(GravityCompat.START);
+//        }else {
+//            super.onBackPressed();
+//        }
+//    }
 
 //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item) {
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
     public void userlist(View view) {
-        startActivity(new Intent(getApplicationContext(), Addstaff.class));
+        startActivity(new Intent(getApplicationContext(), OrderViewActivity.class));
     }
 
     public void forgotPassword(View view) {
