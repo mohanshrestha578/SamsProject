@@ -13,55 +13,76 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.OrderViewActivity"></activity>
-
-        <activity android:name=".CreateReservation"/>
-        <activity android:name=".CustomerTableLists" />
-        <activity android:name=".AdminStaffLists" />
-
         <activity
-            android:name=".Activities.AddRolesActivity"
-            android:theme="@style/AppTheme.FullScreen" />
-        <activity
-            android:name=".Activities.RolesActivity"
-            android:theme="@style/AppTheme.FullScreen" />
-        <activity
-            android:name=".Activities.CategoryActivity"
-            android:theme="@style/AppTheme.FullScreen" />
-        <activity android:name=".Activities.AddCategory" />
-        <activity
-            android:name=".ItemViewActivity"
-            android:theme="@style/AppTheme.FullScreen" />
-
-        <activity android:name=".AdminTableLists" />
-        <activity android:name=".CreateTable" />
-        <activity android:name=".Addcategory" />
-        <activity android:name=".UsersList" />
-        <activity android:name=".Addstaff" />
-        <activity
-            android:name=".Additem"
-            android:theme="@style/AppTheme.FullScreen" />
-        <activity
-            android:name=".Activities.RegisterActivity"
-            android:theme="@style/AppTheme.FullScreen" />
-        <activity
-            android:name=".Activities.HomepageActivity"
-            android:theme="@style/AppTheme.FullScreen" />
-        <activity
-            android:name=".Login"
-            android:theme="@style/AppTheme.FullScreen" />
-        <activity
-            android:name=".MainActivity"
-            android:theme="@style/AppTheme.FullScreen">
+            android:name=".NavigationDrawerActivity"
+            android:label="@string/title_activity_navigation_drawer"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Activities.OrderViewActivity" />
+        <activity android:name=".CreateReservation" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NavigationDrawerActivity" />
+        </activity>
+        <activity android:name=".CustomerTableLists">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NavigationDrawerActivity" />
+        </activity>
+        <activity android:name=".AdminStaffLists">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NavigationDrawerActivity" />
+        </activity>
+        <activity android:name=".Activities.AddRolesActivity" />
+        <activity android:name=".Activities.RolesActivity" />
+        <activity android:name=".Activities.CategoryActivity" />
+        <activity android:name=".Activities.AddCategory">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NavigationDrawerActivity" />
+        </activity>
+        <activity android:name=".ItemViewActivity" />
+        <activity android:name=".AdminTableLists">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NavigationDrawerActivity" />
+        </activity>
+        <activity android:name=".CreateTable" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NavigationDrawerActivity" />
+        </activity>
+        <activity android:name=".Addcategory">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NavigationDrawerActivity" />
+        </activity>
+        <activity android:name=".UsersList">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NavigationDrawerActivity" />
+        </activity>
+        <activity android:name=".Addstaff" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NavigationDrawerActivity" />
+        </activity>
+        <activity android:name=".Additem" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NavigationDrawerActivity" />
+        </activity>
+        <activity android:name=".Activities.RegisterActivity" />
+        <activity android:name=".Activities.HomepageActivity" />
+        <activity android:name=".Login" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Activities.Admin.Item"
-            android:theme="@style/AppTheme.FullScreen" />
+        <activity android:name=".Activities.Admin.Item" />
     </application>
 
 </manifest>

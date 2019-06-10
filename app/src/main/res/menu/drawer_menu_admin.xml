@@ -6,13 +6,35 @@
 
 
     <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_menu"
-            android:icon="@drawable/ic_local_dining_black_24dp"
-            android:title="Menu"/>
+        <item android:id="@+id/nav_add_staff"
+            android:icon="@drawable/ic_person_add_black_24dp"
+            android:title="Add Staff"/>
 
-        <item android:id="@+id/nav_reserve"
-            android:icon="@drawable/ic_restaurant_black_24dp"
-            android:title="Reserve table"/>
+        <item android:id="@+id/nav_userslist"
+            android:icon="@drawable/ic_format_list_bulleted_black_24dp"
+            android:title="User List"/>
+
+        <item android:id="@+id/nav_add_item"
+            android:icon="@drawable/ic_add_circle_outline_black_24dp"
+            android:title="Add Item"/>
+        <item android:id="@+id/nav_generate_report"
+            android:icon="@drawable/ic_sync_black_24dp"
+            android:title="Generate report"/>
+        <item android:id="@+id/nav_staff_list"
+            android:icon="@drawable/ic_account_box_black_24dp"
+            android:title="Staff Lists"/>
+        <item android:id="@+id/nav_add_category"
+            android:icon="@drawable/ic_add_black_24dp"
+            android:title="Add Category"/>
+        <item android:id="@+id/nav_table_lists"
+            android:icon="@drawable/ic_featured_play_list_black_24dp"
+            android:title="Table Lists"/>
+        <item android:id="@+id/nav_create_table"
+            android:icon="@drawable/ic_library_add_black_24dp"
+            android:title="Add Table"/>
+
+
+
 
     </group>
     <item android:title="Setting">

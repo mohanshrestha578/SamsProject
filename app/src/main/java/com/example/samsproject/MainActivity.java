@@ -22,23 +22,28 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    private DrawerLayout drawer;
+    private DrawerLayout mDrawerLayout;
 
     private ActionBarDrawerToggle myToogle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.main_layout);
-        startActivity(new Intent(getApplicationContext(), Login.class));
+        startActivity(new Intent(getApplicationContext(), NavigationDrawerActivity.class));
         setContentView(R.layout.activity_main);
 
 //        Toolbar toolbar = findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
+//
+//        mDrawerLayout = findViewById(R.id.drawer_layout);
+//        myToogle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
+//        mDrawerLayout.addDrawerListener(myToogle);
+//        myToogle.syncState();
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
-//        drawer = findViewById(R.id.drawer_layout);
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
-//                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
+ //       ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar,
+ //               R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
 //        drawer.addDrawerListener(toggle);
 //        toggle.syncState();
@@ -47,14 +52,6 @@ public class MainActivity extends AppCompatActivity {
 //        setContentView(R.layout.activity_main);
 //
 //            drawer = findViewById(R.id.drawer);
-//
-//            myToogle = new ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close);
-//
-//            drawer.addDrawerListener(myToogle);
-//            myToogle.syncState();
-//
-//            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
     }
 
 //    @Override
@@ -65,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 //            super.onBackPressed();
 //        }
 //    }
-
+//
 //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item) {
 //        if(myToogle.onOptionsItemSelected(item)){
