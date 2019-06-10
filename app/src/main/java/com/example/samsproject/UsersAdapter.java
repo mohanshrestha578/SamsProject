@@ -35,8 +35,11 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
 
         User user = userList.get(position);
 
-        userViewHolder.textView.setText(user.getName());
         userViewHolder.imageView.setImageDrawable(mctx.getResources().getDrawable(user.getImage()));
+        userViewHolder.userName.setText(user.getName());
+        userViewHolder.userEmail.setText(user.getUserEmail());
+        userViewHolder.userNumber.setText(user.getUserNumber());
+
     }
 
     @Override
@@ -47,13 +50,17 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
     class UserViewHolder extends RecyclerView.ViewHolder{
 
         ImageView imageView;
-        TextView textView;
+        TextView userName;
+        TextView userEmail;
+        TextView userNumber;
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
 
             imageView = itemView.findViewById(R.id.userImage);
-            textView = itemView.findViewById(R.id.userName);
+            userName = itemView.findViewById(R.id.userName);
+            userEmail = itemView.findViewById(R.id.userEmail);
+            userNumber = itemView.findViewById(R.id.userNumber);
         }
     }
 }

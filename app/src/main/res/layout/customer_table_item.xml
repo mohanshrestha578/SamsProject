@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="5dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tableNumberText"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:text="Table Number:"
+        android:textSize="24sp"
+        android:textColor="#000"/>
+
+    <TextView
+        android:id="@+id/tableNumber"
+        android:layout_toRightOf="@id/tableNumberText"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:text="TextView"
+        android:textSize="24sp"
+        android:layout_marginLeft="5dp"
+        android:textColor="#000"/>
+
+    <TextView
+        android:id="@+id/numberOfSeatsText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tableNumberText"
+        android:text="No of seats:" />
+
+    <TextView
+        android:id="@+id/numberOfSeats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tableNumberText"
+        android:layout_marginLeft="-333dp"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@id/numberOfSeatsText"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/reserveTable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_toRightOf="@id/tableNumberText"
+        android:background="#0f0"
+        android:text="Reserve"
+        android:layout_marginTop="3dp"
+        android:gravity="center"
+        android:onClick="reserveTable"/>
+
+</RelativeLayout>

@@ -6,61 +6,102 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="#f123"
+    android:background="#2983DD"
     tools:context=".Addstaff">
     
     <ImageView
         android:layout_width="160dp"
         android:layout_height="127dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:src="@drawable/registerlogo"/>
 
     <EditText
         android:id="@+id/staffname"
         android:layout_width="190dp"
         android:layout_height="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:background="#ffffff"
         android:hint="Staff name"
+        android:inputType="text"
         />
 
     <EditText
-        android:id="@+id/phoneno"
+        android:id="@+id/staffPhoneno"
         android:layout_width="190dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:background="#ffffff"
         android:hint="staff Phone no."
+        android:inputType="phone"
         />
 
     <EditText
-        android:id="@+id/year"
+        android:id="@+id/joinYear"
         android:layout_width="190dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:background="#ffffff"
         android:hint="Joining year"
+        android:inputType="number"
         />
     
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/staffEmail"
         android:layout_width="190dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:background="#ffffff"
         android:hint="Email address"
+        android:inputType="textEmailAddress"
         />
-    
+
+    <EditText
+        android:id="@+id/staffPassword"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="#ffffff"
+        android:hint="Password"
+        android:inputType="textPassword"
+        />
+
+    <EditText
+        android:id="@+id/staffConfirmPassword"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="#ffffff"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        />
+
+    <EditText
+        android:id="@+id/staffLocation"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="#ffffff"
+        android:hint="Location"
+        android:inputType="text"
+        />
+
+    <Spinner
+        android:id="@+id/roleSpinner"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        >
+    </Spinner>
+
+
     <Button
         android:id="@+id/register"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:hint="Register"
-        />
-
-
-
+        android:onClick="addStaff"
+        android:background="#0f0"/>
 
 
 </LinearLayout>

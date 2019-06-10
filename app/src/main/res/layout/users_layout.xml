@@ -32,8 +32,23 @@
                 android:text="Mohan Shrestha"
                 android:textColor="#000"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="30dp"/>
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:id="@+id/userEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/userName"
+                android:text="Email Address"
+                android:layout_toRightOf="@id/userImage"/>
+
+            <TextView
+                android:id="@+id/userNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Number"
+                android:layout_below="@id/userEmail"
+                android:layout_toRightOf="@id/userImage"/>
 
             <Button
                 android:id="@+id/blockButton"
@@ -43,8 +58,7 @@
                 android:background="#f00"
                 android:layout_toRightOf="@+id/userName"
                 android:layout_below="@id/userName"
-                android:layout_marginTop="-23dp"
-                android:layout_marginLeft="30dp"/>
+                android:layout_marginLeft="60dp"/>
 
         </RelativeLayout>
 

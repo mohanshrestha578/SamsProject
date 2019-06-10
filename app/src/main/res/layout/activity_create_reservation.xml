@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CreateReservation">
+
+    <EditText
+        android:id="@+id/reservationName"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:hint="Reservation Name"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="20dp"
+        android:inputType="text"/>
+
+    <TextView
+        android:id="@+id/reservationTime"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"
+        android:hint="Time"
+        android:layout_marginLeft="130dp"
+        android:inputType="time"/>
+
+    <Button
+        android:id="@+id/generateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pick Time"
+        android:layout_marginLeft="150dp"/>
+
+    <TextView
+        android:id="@+id/generatedDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="15dp"/>
+
+    <Button
+        android:id="@+id/generateDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Pick Date"
+        android:layout_marginLeft="150dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Table Number: "
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="90dp"
+        />
+
+    <TextView
+        android:id="@+id/tableNumber"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="-19dp"
+        android:layout_height="wrap_content"
+        android:hint="Table Number"
+        android:layout_marginLeft="190dp" />
+
+    <EditText
+        android:id="@+id/contactNumber"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:hint="Contact Number"
+        android:layout_marginLeft="100dp" />
+
+    <Button
+        android:id="@+id/makeReservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reserve"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="20dp"
+        android:background="#0f0"
+        android:onClick="makeReservation"/>
+
+</LinearLayout>

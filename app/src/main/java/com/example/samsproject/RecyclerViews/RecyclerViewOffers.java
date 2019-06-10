@@ -1,4 +1,4 @@
-package com.example.samsproject;
+package com.example.samsproject.RecyclerViews;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.samsproject.R;
 
 import java.util.ArrayList;
 

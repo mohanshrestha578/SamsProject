@@ -4,54 +4,128 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="#5489B3"
+    android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".Additem">
 
-    <ImageView
-        android:layout_width="160dp"
-        android:layout_height="127dp"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/item"/>
-
-    <EditText
-        android:id="@+id/itemname"
-        android:layout_width="190dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="40dp"
-        android:background="#ffffff"
-        android:hint="Item Name"
-        />
-
-
-    <EditText
-        android:id="@+id/categoryname"
-        android:layout_width="190dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:background="#ffffff"
-        android:hint="Category Name"
-        />
-
-    <EditText
-        android:id="@+id/price"
-        android:layout_width="190dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:background="#ffffff"
-        android:hint="Price"
-        />
-
-
-
-    <Button
-        android:id="@+id/additembtn1"
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:hint="Add Item"
-        />
+        android:layout_height="wrap_content"
+        android:text="Create Food Item"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/item_admin_create_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:hint="Item Name"/>
+
+            <Spinner
+                android:id="@+id/item_admin_create_category_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Category Name"
+                android:layout_below="@id/item_admin_create_name"/>
+
+            <EditText
+                android:id="@+id/item_admin_create_price"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Price"
+                android:layout_below="@id/item_admin_create_category_name"/>
+
+            <EditText
+                android:id="@+id/item_admin_create_description"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@+id/item_admin_create_price"
+                android:hint="Food Item's Description"/>
+
+            <Button
+                android:id="@+id/item_admin_create_choose_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Choose File"
+                android:layout_below="@id/item_admin_create_description"/>
+
+            <View
+                android:id="@+id/item_admin_create_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/item_admin_create_choose_image"/>
+
+            <LinearLayout
+                android:id="@+id/item_admin_linLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_admin_create_divider"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp">
+
+                <Spinner
+                    android:id="@+id/item_admin_create_placement"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"></Spinner>
+
+                <EditText
+                    android:id="@+id/item_admin_create_discount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="Discount"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/item_admin_create_reLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_admin_linLayout"
+                android:layout_alignParentRight="true">
+
+                <Button
+                    android:id="@+id/item_admin_create_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="Add Item"
+                    android:onClick="uploadItem" />
+
+                <Button
+                    android:id="@+id/item_admin_cancle_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="100dp"
+                    android:text="Cancle"
+                    android:onClick="cancleAddAdminItem"/>
+
+            </RelativeLayout>
+
+
+            <ProgressBar
+                android:id="@+id/item_admin_create_progress_bar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_below="@id/item_admin_create_reLayout"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
 
 
 
