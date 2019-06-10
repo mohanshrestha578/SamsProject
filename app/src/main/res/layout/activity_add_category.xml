@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/add_category_name"
             android:layout_alignRight="@id/add_category_name"
-            android:text="Cancle"
+            android:text="Cancel"
             android:onClick="cancelCategory"
             android:layout_marginLeft="10dp"
             />

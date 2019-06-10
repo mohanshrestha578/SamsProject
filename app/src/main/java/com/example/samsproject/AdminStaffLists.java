@@ -1,9 +1,8 @@
 package com.example.samsproject;
 
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.os.Bundle;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -15,40 +14,38 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminTableLists extends AppCompatActivity {
+public class AdminStaffLists extends AppCompatActivity {
 
-    private DatabaseReference myRef;
-    private ListView listView;
-    private List<Table> tableList;
+    private DatabaseReference dbref;
+    private ListView staffListView;
+    private List<Staff> staffList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_table_lists);
+        setContentView(R.layout.activity_admin_staff_lists);
 
-        listView = findViewById(R.id.tableLists);
-        tableList = new ArrayList<>();
+        staffListView = findViewById(R.id.staffLists);
+        staffList = new ArrayList<>();
 
-        myRef = FirebaseDatabase.getInstance().getReference().child("Table Information");
+        dbref = FirebaseDatabase.getInstance().getReference("Staff Information");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        myRef.addValueEventListener(new ValueEventListener() {
+        dbref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                tableList.clear();
+                staffList.clear();
 
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    Table tb = new Table();
-                    Table tbo = snapshot.getValue(Table.class);
-                    tableList.add(tbo);
+                    Staff st = snapshot.getValue(Staff.class);
+                    staffList.add(st);
                 }
-
-                AdminTableListAdapter adapter = new AdminTableListAdapter(AdminTableLists.this, tableList);
-                listView.setAdapter(adapter);
+                AdminStaffListAdapter adapter = new AdminStaffListAdapter(AdminStaffLists.this, staffList);
+                staffListView.setAdapter(adapter);
             }
 
             @Override
@@ -58,4 +55,3 @@ public class AdminTableLists extends AppCompatActivity {
         });
     }
 }
-

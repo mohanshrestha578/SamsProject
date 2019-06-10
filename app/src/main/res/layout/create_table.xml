@@ -34,12 +34,5 @@
         android:onClick="addtable"
         android:text="ADD TABLE"/>
 
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:background="#f00"
-        android:text="DELETE TABLE" />
 
 </LinearLayout>

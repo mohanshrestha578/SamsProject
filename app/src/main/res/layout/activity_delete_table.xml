@@ -1,9 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="50dp"
     tools:context=".DeleteTable">
 
-</android.support.constraint.ConstraintLayout>
+    <EditText
+        android:id="@+id/tableNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:hint="Table Number"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/deleteTable"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="#f00"
+        android:text="DELETE TABLE"
+        android:onClick="deleteTable"/>
+
+    <Button
+        android:id="@+id/addTable"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="#0f0"
+        android:onClick="addTable"
+        android:text="ADD TABLE"/>
+
+</LinearLayout>

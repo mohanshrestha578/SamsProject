@@ -1,5 +1,6 @@
 package com.example.samsproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -41,14 +42,14 @@ public class CreateTable extends AppCompatActivity {
         }else if(TextUtils.isEmpty(numberOfSeats)){
             Toast.makeText(this, "Please, enter number of seats", Toast.LENGTH_SHORT).show();
         }else{
-            String id =dbref.push().getKey();
-            Table tb = new Table(id, numberOfTable, numberOfSeats);
+            String id = dbref.push().getKey();
+            String bookStatus = "unbooked";
+            Table tb = new Table(id, numberOfTable, numberOfSeats, bookStatus);
             dbref.child(id).setValue(tb);
             Toast.makeText(this, "Table successfully created", Toast.LENGTH_SHORT).show();
             tableNumber.setText("");
             tableSeats.setText("");
         }
-
-
     }
+
 }

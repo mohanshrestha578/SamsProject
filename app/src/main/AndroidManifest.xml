@@ -14,6 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activities.OrderViewActivity"></activity>
+
+        <activity android:name=".CreateReservation"/>
+        <activity android:name=".CustomerTableLists" />
+        <activity android:name=".AdminStaffLists" />
+
         <activity
             android:name=".Activities.AddRolesActivity"
             android:theme="@style/AppTheme.FullScreen" />
@@ -27,6 +32,7 @@
         <activity
             android:name=".ItemViewActivity"
             android:theme="@style/AppTheme.FullScreen" />
+
         <activity android:name=".AdminTableLists" />
         <activity android:name=".CreateTable" />
         <activity android:name=".Addcategory" />
