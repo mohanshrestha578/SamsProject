@@ -98,35 +98,35 @@ public class RegisterActivity extends AppCompatActivity {
     }
     public void registerUser(View view) {
 
-        startLoader(progress);
 
         final String auth_email = email.getText().toString();
         final String auth_username = username.getText().toString();
         String auth_password = password.getText().toString();
         String auth_conf_password = conf_password.getText().toString();
 
-        if(!isValidEmail(auth_email)){
-            Toast.makeText(getApplicationContext(), "Email must be valid!", Toast.LENGTH_SHORT).show();
+        if (TextUtils.isEmpty(auth_email)) {
+            Toast.makeText(getApplicationContext(), "Please provide email address", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if (TextUtils.isEmpty(auth_email)) {
-            Toast.makeText(getApplicationContext(), "Please provide email address", Toast.LENGTH_SHORT).show();
+        if(!isValidEmail(auth_email)){
+            Toast.makeText(getApplicationContext(), "Email must be valid!", Toast.LENGTH_LONG).show();
             return;
         }
+
         if (TextUtils.isEmpty(auth_password)) {
-            Toast.makeText(getApplicationContext(), "Please provide password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Please provide password", Toast.LENGTH_LONG).show();
             return;
         }
         if (auth_password.length() < 6) {
-            Toast.makeText(getApplicationContext(), "Your password must have more than 6 characters", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Your password must have more than 6 characters", Toast.LENGTH_LONG).show();
             return;
         }
         if (TextUtils.isEmpty(auth_conf_password)) {
-            Toast.makeText(getApplicationContext(), "Please provide confirmation password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Please provide confirmation password", Toast.LENGTH_LONG).show();
         }
         if (auth_password.equals(auth_conf_password)) {
-
+            endLoader(progress);
             mAuth.createUserWithEmailAndPassword(auth_email, auth_password)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -152,13 +152,14 @@ public class RegisterActivity extends AppCompatActivity {
                                 finish();
                             }
                             else{
-                                Toast.makeText(getApplicationContext(),"E-mail or password is wrong",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(),"E-mail or password is wrong",Toast.LENGTH_LONG).show();
+                                endLoader(progress);
                             }
                         }
                     });
 
         } else {
-            Toast.makeText(getApplicationContext(), "Your password and confirmation does not match.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Your password and confirmation does not match.", Toast.LENGTH_LONG).show();
         }
     }
 

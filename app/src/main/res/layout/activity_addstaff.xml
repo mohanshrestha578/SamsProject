@@ -8,100 +8,122 @@
     android:gravity="center_horizontal"
     android:background="#2983DD"
     tools:context=".Addstaff">
-    
-    <ImageView
-        android:layout_width="160dp"
-        android:layout_height="127dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/registerlogo"/>
 
-    <EditText
-        android:id="@+id/staffname"
-        android:layout_width="190dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:background="#ffffff"
-        android:hint="Staff name"
-        android:inputType="text"
-        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="10dp">
 
-    <EditText
-        android:id="@+id/staffPhoneno"
-        android:layout_width="190dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:background="#ffffff"
-        android:hint="staff Phone no."
-        android:inputType="phone"
-        />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Staff"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"/>
 
-    <EditText
-        android:id="@+id/joinYear"
-        android:layout_width="190dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:background="#ffffff"
-        android:hint="Joining year"
-        android:inputType="number"
-        />
-    
-    <EditText
-        android:id="@+id/staffEmail"
-        android:layout_width="190dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:background="#ffffff"
-        android:hint="Email address"
-        android:inputType="textEmailAddress"
-        />
+            <ImageView
+                android:layout_width="160dp"
+                android:layout_height="127dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/registerlogo"/>
 
-    <EditText
-        android:id="@+id/staffPassword"
-        android:layout_width="190dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:background="#ffffff"
-        android:hint="Password"
-        android:inputType="textPassword"
-        />
+            <EditText
+                android:id="@+id/staffname"
+                android:layout_width="190dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="#ffffff"
+                android:hint="Staff name"
+                android:inputType="text"
+                />
 
-    <EditText
-        android:id="@+id/staffConfirmPassword"
-        android:layout_width="190dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:background="#ffffff"
-        android:hint="Confirm Password"
-        android:inputType="textPassword"
-        />
+            <EditText
+                android:id="@+id/staffPhoneno"
+                android:layout_width="190dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:background="#ffffff"
+                android:hint="staff Phone no."
+                android:inputType="phone"
+                />
 
-    <EditText
-        android:id="@+id/staffLocation"
-        android:layout_width="190dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:background="#ffffff"
-        android:hint="Location"
-        android:inputType="text"
-        />
+            <EditText
+                android:id="@+id/joinYear"
+                android:layout_width="190dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:background="#ffffff"
+                android:hint="Joining year"
+                android:inputType="number"
+                />
 
-    <Spinner
-        android:id="@+id/roleSpinner"
-        android:layout_width="190dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        >
-    </Spinner>
+            <EditText
+                android:id="@+id/staffEmail"
+                android:layout_width="190dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:background="#ffffff"
+                android:hint="Email address"
+                android:inputType="textEmailAddress"
+                />
+
+            <EditText
+                android:id="@+id/staffPassword"
+                android:layout_width="190dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:background="#ffffff"
+                android:hint="Password"
+                android:inputType="textPassword"
+                />
+
+            <EditText
+                android:id="@+id/staffConfirmPassword"
+                android:layout_width="190dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:background="#ffffff"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                />
+
+            <EditText
+                android:id="@+id/staffLocation"
+                android:layout_width="190dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:background="#ffffff"
+                android:hint="Location"
+                android:inputType="text"
+                />
+
+            <Spinner
+                android:id="@+id/roleSpinner"
+                android:layout_width="190dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                >
+            </Spinner>
 
 
-    <Button
-        android:id="@+id/register"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:hint="Register"
-        android:onClick="addStaff"
-        android:background="#0f0"/>
+            <Button
+                android:id="@+id/register"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:hint="Register"
+                android:onClick="addStaff"
+                android:background="#0f0"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </LinearLayout>

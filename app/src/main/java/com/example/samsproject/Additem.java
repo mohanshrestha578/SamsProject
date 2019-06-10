@@ -173,50 +173,67 @@ public class Additem extends AppCompatActivity {
             setUpModel();
 
             if (mImageUri != null) {
-                final StorageReference fileReference = mStorageRef.child(System.currentTimeMillis() + "." + getFileExtension(mImageUri));
 
-                final StorageReference ref = mStorageRef.child(System.currentTimeMillis() + "." + getFileExtension(mImageUri));
-                UploadTask uploadTask = ref.putFile(mImageUri);
+                if(TextUtils.isEmpty(item_name.getText().toString())){
+                    Toast.makeText(this, "Please enter name!", Toast.LENGTH_LONG).show();
+                }else if(TextUtils.isEmpty(price.getText().toString())){
+                    Toast.makeText(this, "Please enter price!", Toast.LENGTH_LONG).show();
+                }else if(TextUtils.isEmpty(description.getText().toString())){
+                    Toast.makeText(this, "Please enter description!", Toast.LENGTH_LONG).show();
+                }else if(TextUtils.isEmpty(String.valueOf(category_name.getSelectedItem()))){
+                    Toast.makeText(this, "Please select a category name!", Toast.LENGTH_LONG).show();
+                }else if(TextUtils.isEmpty(discount.getText().toString())){
+                    Toast.makeText(this, "Please enter a discount!", Toast.LENGTH_LONG).show();
+                }else if(TextUtils.isEmpty(String.valueOf(placement.getSelectedItem()))){
+                    Toast.makeText(this, "Please select a placement!", Toast.LENGTH_LONG).show();
+                }else{
 
-                Task urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-                    @Override
-                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                        if (!task.isSuccessful()) {
-                            throw task.getException();
+                    final StorageReference fileReference = mStorageRef.child(System.currentTimeMillis() + "." + getFileExtension(mImageUri));
+
+                    final StorageReference ref = mStorageRef.child(System.currentTimeMillis() + "." + getFileExtension(mImageUri));
+                    UploadTask uploadTask = ref.putFile(mImageUri);
+
+                    Task urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                        @Override
+                        public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                            if (!task.isSuccessful()) {
+                                throw task.getException();
+                            }
+
+                            // Continue with the task to get the download URL
+                            return ref.getDownloadUrl();
                         }
+                    }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Uri> task) {
+                            if (task.isSuccessful()) {
 
-                        // Continue with the task to get the download URL
-                        return ref.getDownloadUrl();
-                    }
-                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Uri> task) {
-                        if (task.isSuccessful()) {
+                                Uri downloadUri = task.getResult();
 
-                            Uri downloadUri = task.getResult();
+                                String uploadId = mDataRef.push().getKey();
 
-                            String uploadId = mDataRef.push().getKey();
+                                ModelItem uploadImage = new ModelItem(uploadId, item_name.getText().toString().trim(),
+                                        price.getText().toString().trim(),
+                                        downloadUri.toString(),
+                                        description.getText().toString().trim(),
+                                        saveCatDetails.getId(),
+                                        saveCatDetails.getCategory_name(),
+                                        Integer.parseInt(discount.getText().toString()),
+                                        String.valueOf(placement.getSelectedItem()));
 
-                            ModelItem uploadImage = new ModelItem(uploadId, item_name.getText().toString().trim(),
-                                price.getText().toString().trim(),
-                                downloadUri.toString(),
-                                description.getText().toString().trim(),
-                                saveCatDetails.getId(),
-                                saveCatDetails.getCategory_name(),
-                                Integer.parseInt(discount.getText().toString()),
-                                String.valueOf(placement.getSelectedItem()));
+                                mDataRef.child(uploadId).setValue(uploadImage);
 
-                            mDataRef.child(uploadId).setValue(uploadImage);
+                                endLoader(progress);
+                                Toast.makeText(Additem.this, "Upload Successful", Toast.LENGTH_SHORT).show();
+                                emptyAllFields();
 
-                            endLoader(progress);
-                            Toast.makeText(Additem.this, "Upload Successful", Toast.LENGTH_SHORT).show();
-                            emptyAllFields();
-
-                        } else {
-                            Toast.makeText(Additem.this, "Error Uploading File!", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(Additem.this, "Error Uploading File!", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                });
+                    });
+
+                }
 
 //                mUploadTask = fileReference.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
 //                    @Override
@@ -263,6 +280,7 @@ public class Additem extends AppCompatActivity {
 //                });
 
             } else {
+                endLoader(progress);
                 Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
             }
         }
@@ -295,7 +313,7 @@ public class Additem extends AppCompatActivity {
         discount.setText("");
     }
 
-    private String dataValidation() {
+    private Boolean dataValidation() {
 
         if(TextUtils.isEmpty(item_name.getText().toString())){
             Toast.makeText(this, "Please enter name!", Toast.LENGTH_LONG).show();

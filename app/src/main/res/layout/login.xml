@@ -125,16 +125,16 @@
 
             </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Forgot Password?"
-                android:layout_below="@id/loginCV"
-                android:layout_alignRight="@id/loginCV"
-                android:textColor="#aaa"
-                android:textStyle="bold"
-                android:onClick="forgotPassword"
-                android:layout_marginRight="20dp"/>
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Forgot Password?"-->
+                <!--android:layout_below="@id/loginCV"-->
+                <!--android:layout_alignRight="@id/loginCV"-->
+                <!--android:textColor="#aaa"-->
+                <!--android:textStyle="bold"-->
+                <!--android:onClick="forgotPassword"-->
+                <!--android:layout_marginRight="20dp"/>-->
 
             <android.support.v7.widget.CardView
                 android:id="@+id/register_btn_cv"

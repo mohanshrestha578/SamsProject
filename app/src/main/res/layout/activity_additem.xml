@@ -44,7 +44,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="Price"
-                android:layout_below="@id/item_admin_create_category_name"/>
+                android:layout_below="@id/item_admin_create_category_name"
+                android:inputType="number"/>
 
             <EditText
                 android:id="@+id/item_admin_create_description"
@@ -108,7 +109,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_marginLeft="100dp"
-                    android:text="Cancle"
+                    android:text="Cancel"
                     android:onClick="cancleAddAdminItem"/>
 
             </RelativeLayout>

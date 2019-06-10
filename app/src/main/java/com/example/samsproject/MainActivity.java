@@ -12,10 +12,13 @@ import android.support.v4.view.GravityCompat;
 import android.view.View;
 
 import com.example.samsproject.Activities.AddCategory;
+import com.example.samsproject.Activities.AddRolesActivity;
 import com.example.samsproject.Activities.Admin.Item;
 import com.example.samsproject.Activities.HomepageActivity;
 import com.example.samsproject.Activities.OrderViewActivity;
 import com.example.samsproject.Activities.RegisterActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,18 +30,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.main_layout);
-        startActivity(new Intent(getApplicationContext(), HomepageActivity.class));
+        startActivity(new Intent(getApplicationContext(), Login.class));
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
-        drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//        drawer = findViewById(R.id.drawer_layout);
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+//                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+//        drawer.addDrawerListener(toggle);
+//        toggle.syncState();
  //       startActivity(new Intent(getApplicationContext(), Additem.class));
 //        startActivity(new Intent(getApplicationContext(), HomepageActivity.class));
 //        setContentView(R.layout.activity_main);

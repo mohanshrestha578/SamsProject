@@ -133,9 +133,15 @@ public class RecyclerViewCategory extends RecyclerView.Adapter<RecyclerViewCateg
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("categories").child(id);
 
         Category category = new Category(id, name);
-        dbRef.setValue(category);
 
-        Toast.makeText(context, "Category Updated", Toast.LENGTH_LONG).show();
+        if(category.getCategory_name().equals(null)){
+            Toast.makeText(context, "Category Name must not be empty", Toast.LENGTH_LONG).show();
+        }else{
+            dbRef.setValue(category);
+
+            Toast.makeText(context, "Category Updated", Toast.LENGTH_LONG).show();
+        }
+
 
     }
 
