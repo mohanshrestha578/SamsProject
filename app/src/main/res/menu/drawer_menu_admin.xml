@@ -10,16 +10,9 @@
             android:icon="@drawable/ic_person_add_black_24dp"
             android:title="Add Staff"/>
 
-        <item android:id="@+id/nav_userslist"
-            android:icon="@drawable/ic_format_list_bulleted_black_24dp"
-            android:title="User List"/>
-
         <item android:id="@+id/nav_add_item"
             android:icon="@drawable/ic_add_circle_outline_black_24dp"
             android:title="Add Item"/>
-        <item android:id="@+id/nav_generate_report"
-            android:icon="@drawable/ic_sync_black_24dp"
-            android:title="Generate report"/>
         <item android:id="@+id/nav_staff_list"
             android:icon="@drawable/ic_account_box_black_24dp"
             android:title="Staff Lists"/>
@@ -32,6 +25,15 @@
         <item android:id="@+id/nav_create_table"
             android:icon="@drawable/ic_library_add_black_24dp"
             android:title="Add Table"/>
+        <item android:id="@+id/nav_item_list"
+            android:icon="@drawable/ic_library_add_black_24dp"
+            android:title="Items list"/>
+        <item android:id="@+id/nav_add_roles"
+            android:icon="@drawable/ic_library_add_black_24dp"
+            android:title="Add roles"/>
+        <item android:id="@+id/nav_category_lists"
+            android:icon="@drawable/ic_library_add_black_24dp"
+            android:title="Category lists"/>
 
 
 

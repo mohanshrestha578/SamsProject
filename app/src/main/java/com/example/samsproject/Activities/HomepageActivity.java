@@ -61,7 +61,7 @@ public class HomepageActivity extends AppCompatActivity {
         getImages();
         getOffers();
 
-
+        getSupportActionBar().setTitle("Menu");
     }
 
     private void setAllUserData(final String restoredText) {

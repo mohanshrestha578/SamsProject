@@ -30,6 +30,8 @@ public class AdminTableLists extends AppCompatActivity {
         tableList = new ArrayList<>();
 
         myRef = FirebaseDatabase.getInstance().getReference().child("Table Information");
+
+        getSupportActionBar().setTitle("Tables List");
     }
 
     @Override

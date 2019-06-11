@@ -35,6 +35,8 @@ public class AddCategory extends AppCompatActivity {
         categoryName = findViewById(R.id.add_category_name);
 
         Categories = new ArrayList();
+
+        getSupportActionBar().setTitle("Add Category");
     }
 
     public void createCategory(View view) {

@@ -129,6 +129,7 @@ public class Additem extends AppCompatActivity {
             }
         });
 
+        getSupportActionBar().setTitle("Add Item");
     }
 
     private void addItemsOnCategory() {

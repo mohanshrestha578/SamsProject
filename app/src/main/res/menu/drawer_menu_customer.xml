@@ -14,6 +14,12 @@
             android:icon="@drawable/ic_add_circle_outline_black_24dp"
             android:title="Reserve Table"/>
 
+        <item android:id="@+id/nav_cart_items"
+            android:icon="@drawable/ic_add_circle_outline_black_24dp"
+            android:title="Orders"/>
+
+
+
     </group>
     <item android:title="Setting">
         <menu>

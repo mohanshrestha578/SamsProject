@@ -2,12 +2,20 @@ package com.example.samsproject;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.example.samsproject.Activities.AddCategory;
+import com.example.samsproject.Activities.HomepageActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -17,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerTableLists extends AppCompatActivity {
+public class CustomerTableLists extends AppCompatActivity{
 
     private DatabaseReference myref;
     private ListView listView;
@@ -32,6 +40,8 @@ public class CustomerTableLists extends AppCompatActivity {
         tableLists = new ArrayList<>();
 
         myref = FirebaseDatabase.getInstance().getReference().child("Table Information");
+
+        getSupportActionBar().setTitle("Tables List");
     }
 
     @Override
@@ -58,7 +68,6 @@ public class CustomerTableLists extends AppCompatActivity {
             }
         });
     }
-
 
 
 

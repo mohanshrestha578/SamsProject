@@ -29,54 +29,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        startActivity(new Intent(getApplicationContext(), NavigationDrawerActivity.class));
+        startActivity(new Intent(getApplicationContext(), NavigationDrawerActivity  .class));
         setContentView(R.layout.activity_main);
 
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//
-//        mDrawerLayout = findViewById(R.id.drawer_layout);
-//        myToogle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
-//        mDrawerLayout.addDrawerListener(myToogle);
-//        myToogle.syncState();
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-
-
- //       ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar,
- //               R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-
-//        drawer.addDrawerListener(toggle);
-//        toggle.syncState();
- //       startActivity(new Intent(getApplicationContext(), Additem.class));
-//        startActivity(new Intent(getApplicationContext(), HomepageActivity.class));
-//        setContentView(R.layout.activity_main);
-//
-//            drawer = findViewById(R.id.drawer);
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        if (drawer.isDrawerOpen(GravityCompat.START)){
-//            drawer.closeDrawer(GravityCompat.START);
-//        }else {
-//            super.onBackPressed();
-//        }
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        if(myToogle.onOptionsItemSelected(item)){
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
-
-    public void userlist(View view) {
-        startActivity(new Intent(getApplicationContext(), OrderViewActivity.class));
-    }
-
-    public void forgotPassword(View view) {
-        
-    }
 }
 

@@ -30,6 +30,7 @@
             </android.support.v7.widget.RecyclerView>
 
             <RelativeLayout
+                android:id="@+id/order_list_billLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="20dp"
@@ -51,7 +52,7 @@
                         android:id="@+id/order_list_total_discount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Rs. 500"
+                        android:text="Rs. 0"
                         android:layout_weight="2"
                         android:textAlignment="textEnd"/>
 
@@ -85,7 +86,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Place Order"
-                android:onClick="placeOrder"/>
+                android:onClick="placeOrder"
+                android:layout_below="@+id/order_list_billLayout"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"/>
 
         </RelativeLayout>
 

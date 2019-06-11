@@ -18,6 +18,21 @@ public class Order {
         this.tableNumber = tableNumber;
     }
 
+    public Order(String id, String user_id, String username, String item_id, String item_name, Integer item_price, Integer quantity, String image, Integer discount, String status, String tableNumber, Integer staff_order) {
+        this.id = id;
+        this.user_id = user_id;
+        this.username = username;
+        this.item_id = item_id;
+        this.item_name = item_name;
+        this.item_price = item_price;
+        this.quantity = quantity;
+        this.image = image;
+        this.discount = discount;
+        this.status = status;
+        this.tableNumber = tableNumber;
+        this.staff_order = staff_order;
+    }
+
     private String id;
     private String user_id;
     private String username;
@@ -29,7 +44,7 @@ public class Order {
     private Integer discount;
     private String status;
     private String tableNumber;
-
+    private Integer staff_order;
 
 
     public String getId() {
@@ -118,5 +133,13 @@ public class Order {
 
     public void setTableNumber(String tableNumber) {
         this.tableNumber = tableNumber;
+    }
+
+    public Integer getStaff_order() {
+        return staff_order;
+    }
+
+    public void setStaff_order(Integer staff_order) {
+        this.staff_order = staff_order;
     }
 }

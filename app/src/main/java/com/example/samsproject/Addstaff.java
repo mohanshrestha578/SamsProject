@@ -66,6 +66,7 @@ public class Addstaff extends AppCompatActivity {
         role_name.setAdapter(dataadapter);
         dataadapter.notifyDataSetChanged();
 
+        getSupportActionBar().setTitle("Add Staff");
     }
 
     private void addRolesOfStaff() {

@@ -29,6 +29,8 @@ public class AdminStaffLists extends AppCompatActivity {
         staffList = new ArrayList<>();
 
         dbref = FirebaseDatabase.getInstance().getReference("Staff Information");
+
+        getSupportActionBar().setTitle("Staffs List");
     }
 
     @Override

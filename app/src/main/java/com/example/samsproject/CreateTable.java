@@ -29,6 +29,8 @@ public class CreateTable extends AppCompatActivity {
         add = findViewById(R.id.addTable);
 
         dbref = FirebaseDatabase.getInstance().getReference("Table Information");
+
+        getSupportActionBar().setTitle("Create Table");
     }
 
 

@@ -144,6 +144,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 editor.putString("id", id);
                                 editor.putString("uuid", mAuth.getUid());
                                 editor.putString("username", auth_username);
+                                editor.putString("role", "customer");
                                 editor.apply();
 
                                 endLoader(progress);

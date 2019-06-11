@@ -2,6 +2,7 @@ package com.example.samsproject;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -21,6 +22,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity {
 
@@ -31,10 +37,15 @@ public class Login extends AppCompatActivity {
     private EditText username;
     private EditText password;
 
+    String user_id = "";
+    String user_role = "";
+    String user_name = "";
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+        startActivity(new Intent(getApplicationContext(), NavigationDrawerActivity.class));
 
         register_btn = (CardView) findViewById(R.id.register_btn_cv);
         username = (EditText) findViewById(R.id.login_username);
@@ -51,9 +62,48 @@ public class Login extends AppCompatActivity {
         updateUI(currentUser);
     }
 
-    private void updateUI(FirebaseUser currentUser) {
+    private void updateUI(final FirebaseUser currentUser) {
         if(currentUser != null){
-            startActivity(new Intent(this, HomepageActivity.class));
+
+            Query query1 = FirebaseDatabase.getInstance().getReference("Staff Information").orderByChild("staffEmailAddress").equalTo(currentUser.getEmail());
+            query1.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+                        Staff user = postSnapshot.getValue(Staff.class);
+                        if(user.getStaffName() != null){
+                            user_id = currentUser.getUid();
+                            user_name = user.getStaffName();
+                            user_role = user.getRole();
+                        }
+                    }
+                    if(user_role == null){
+                        user_id = currentUser.getUid();
+                        user_name = currentUser.getEmail();
+                        user_role = "customer";
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+            if(user_role == null){
+                user_id = currentUser.getUid();
+                user_name = currentUser.getEmail();
+                user_role = "customer";
+            }
+
+            SharedPreferences.Editor editor = getSharedPreferences("user_info", MODE_PRIVATE).edit();
+
+            editor.putString("uuid", currentUser.getUid());
+            editor.putString("role", user_role);
+            editor.putString("username", user_name);
+
+            editor.apply();
+            startActivity(new Intent(this, NavigationDrawerActivity.class));
         }
     }
 

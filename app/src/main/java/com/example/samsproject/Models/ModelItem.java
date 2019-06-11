@@ -1,7 +1,5 @@
 package com.example.samsproject.Models;
 
-import java.util.Map;
-
 public class ModelItem {
 
     private String id;

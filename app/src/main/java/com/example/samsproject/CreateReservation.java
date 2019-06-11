@@ -76,6 +76,8 @@ public class CreateReservation extends AppCompatActivity implements DatePickerDi
         Intent intent = getIntent();
         //sets the table number
         tableNumber.setText(intent.getStringExtra("tableNumber"));
+
+        getSupportActionBar().setTitle("Reserve Table");
     }
 
     @Override

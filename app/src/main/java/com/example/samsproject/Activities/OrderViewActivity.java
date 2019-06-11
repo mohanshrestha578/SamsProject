@@ -112,7 +112,7 @@ public class OrderViewActivity extends AppCompatActivity {
                 }
             });
         }
-
+        endLoader(progress);
     }
 
     private void initRecyclerViewOrderItem() {

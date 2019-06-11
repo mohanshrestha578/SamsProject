@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/dialog_item_list_imageLayout"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:gravity="left">
+
+                <ImageView
+                    android:id="@+id/dialog_item_list_choose_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/radius_img"
+                    />
+
+                <TextView
+                    android:id="@+id/dialog_item_list_discount_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Discount"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@id/dialog_item_list_choose_image"/>
+
+                <TextView
+                    android:id="@+id/dialog_item_list_discount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="10%"
+                    android:layout_below="@id/dialog_item_list_discount_label"
+                    android:paddingLeft="20dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/dialog_item_list_infoLayout"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:layout_toRightOf="@id/dialog_item_list_imageLayout">
+
+                <TextView
+                    android:id="@+id/dialog_item_list_name_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Item Name:"
+                    android:layout_marginTop="20dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/dialog_item_list_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Buff Chowmein"
+                    android:paddingLeft="20dp"
+                    android:layout_below="@id/dialog_item_list_name_label"/>
+
+                <TextView
+                    android:id="@+id/dialog_item_list_price_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Item Price:"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:layout_below="@id/dialog_item_list_name"/>
+
+                <TextView
+                    android:id="@+id/dialog_item_list_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Rs. 120"
+                    android:layout_below="@id/dialog_item_list_price_label"
+                    android:paddingLeft="20dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/dialog_item_list_descLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dialog_item_list_imageLayout">
+
+                <TextView
+                    android:id="@+id/dialog_item_list_quantity_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Item Quantity:"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/dialog_item_list_quantity"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dialog_item_list_quantity_label"
+                    android:layout_marginLeft="10dp"
+                    android:hint="4"
+                    android:inputType="number"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dialog_item_list_descLayout">
+
+                <View
+                    android:id="@+id/dialog_item_list_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <RelativeLayout
+                    android:id="@+id/dialog_item_list_reLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/dialog_item_list_divider">
+
+                    <Button
+                        android:id="@+id/dialog_item_list_updateBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="Update"/>
+                    <Button
+                        android:id="@+id/dialog_item_list_cancle_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="100dp"
+                        android:text="Close"
+                        android:onClick="cancleAddAdminItem"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
