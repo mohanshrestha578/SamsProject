@@ -11,7 +11,7 @@
             android:title="Menu"/>
 
         <item android:id="@+id/nav_orders"
-            android:icon="@drawable/ic_view_list_black_24dp"
+            android:icon="@drawable/ic_reorder_black_24dp"
             android:title="Orders"/>
 
     </group>

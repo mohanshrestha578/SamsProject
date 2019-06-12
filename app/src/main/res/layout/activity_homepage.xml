@@ -96,25 +96,25 @@
 
                 </android.support.v7.widget.RecyclerView>
 
-                <TextView
-                    android:id="@+id/homepage_menu_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Menu"
-                    android:layout_below="@id/homepage_rv_offers"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
-                    android:textColor="#000"
-                    android:layout_marginTop="10dp"/>
+                <!--<TextView-->
+                    <!--android:id="@+id/homepage_menu_text"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Menu"-->
+                    <!--android:layout_below="@id/homepage_rv_offers"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:textColor="#000"-->
+                    <!--android:layout_marginTop="10dp"/>-->
 
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/homepage_menu"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/homepage_menu_text"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal"
-                    ></android.support.v7.widget.RecyclerView>
+                <!--<android.support.v7.widget.RecyclerView-->
+                    <!--android:id="@+id/homepage_menu"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_below="@id/homepage_menu_text"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--&gt;</android.support.v7.widget.RecyclerView>-->
 
             </RelativeLayout>
 

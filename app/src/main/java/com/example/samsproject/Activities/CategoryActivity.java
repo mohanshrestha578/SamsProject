@@ -44,6 +44,8 @@ public class CategoryActivity extends AppCompatActivity {
         myRef = database.getReference("categories");
 
         getAllCategories();
+
+        getSupportActionBar().setTitle("Categories List");
     }
 
     public void getAllCategories(){

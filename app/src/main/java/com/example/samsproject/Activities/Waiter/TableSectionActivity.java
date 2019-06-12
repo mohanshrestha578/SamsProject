@@ -42,6 +42,8 @@ public class TableSectionActivity extends AppCompatActivity {
         startLoader(progress);
 
         getTableList();
+
+        getSupportActionBar().setTitle("Orders");
     }
 
     private void getTableList() {

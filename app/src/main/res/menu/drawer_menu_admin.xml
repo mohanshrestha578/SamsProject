@@ -26,14 +26,17 @@
             android:icon="@drawable/ic_library_add_black_24dp"
             android:title="Add Table"/>
         <item android:id="@+id/nav_item_list"
-            android:icon="@drawable/ic_library_add_black_24dp"
+            android:icon="@drawable/ic_reorder_black_24dp"
             android:title="Items list"/>
         <item android:id="@+id/nav_add_roles"
-            android:icon="@drawable/ic_library_add_black_24dp"
+            android:icon="@drawable/ic_account_box_black_24dp"
             android:title="Add roles"/>
         <item android:id="@+id/nav_category_lists"
-            android:icon="@drawable/ic_library_add_black_24dp"
+            android:icon="@drawable/ic_view_list_black_24dp"
             android:title="Category lists"/>
+        <item android:id="@+id/nav_generate_report"
+            android:icon="@drawable/ic_folder_black_24dp"
+            android:title="Generate Report"/>
 
 
 

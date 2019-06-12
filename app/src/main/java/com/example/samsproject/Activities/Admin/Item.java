@@ -48,6 +48,8 @@ public class Item extends AppCompatActivity {
 
         getAllItems();
 
+        getSupportActionBar().setTitle("Items List");
+
     }
 
     private void getAllItems() {

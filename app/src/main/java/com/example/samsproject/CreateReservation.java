@@ -1,10 +1,18 @@
 package com.example.samsproject;
 
 import android.app.DatePickerDialog;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.os.Build;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -130,6 +138,7 @@ public class CreateReservation extends AppCompatActivity implements DatePickerDi
 
                 Reservation reserve = new Reservation(reservedName, reservedTime, reservedDate, reservedTableNo, contact, user_name, uuid);
                 dbref.child(reservationId).setValue(reserve);
+                notification();
                 Toast.makeText(this, "You have successfully reserve a table in our restaurant", Toast.LENGTH_SHORT).show();
                 reservationName.setText("");
                 reservationTime.setText("");
@@ -144,5 +153,38 @@ public class CreateReservation extends AppCompatActivity implements DatePickerDi
         }else{
             Toast.makeText(this, "Table is already booked", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void notification(){
+        Context context = CreateReservation.this;
+
+        Intent i = new Intent(context, MainActivity.class);
+        PendingIntent pi = PendingIntent.getActivity(context, 0,i,0);// pending intent runs the application in background
+
+        NotificationManager nm = (NotificationManager)context.getSystemService(context.NOTIFICATION_SERVICE);// notification manager build the notification
+
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            NotificationChannel notifChannel = new NotificationChannel("1", "MyChannel", NotificationManager.IMPORTANCE_DEFAULT); //decide to merge the notificaion or not
+
+            notifChannel.enableLights(true);
+            notifChannel.setLightColor(Color.RED);
+            notifChannel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
+            notifChannel.enableVibration(true);
+            nm.createNotificationChannel(notifChannel);
+        }
+
+        NotificationCompat.Builder notifBuilder = new NotificationCompat.Builder(context, "1");
+
+        notifBuilder.setAutoCancel(true)//cancel the notification after opening the app
+                .setDefaults(Notification.DEFAULT_ALL)
+                .setWhen(System.currentTimeMillis())// sets time
+                .setSmallIcon(android.R.drawable.star_big_on)
+                .setPriority(Notification.PRIORITY_MAX)
+                .setContentTitle("Table Reserved")
+                .setContentText("You have successfully reserved your table")
+                .setContentIntent(pi);//helps to run in background
+
+        nm.notify(0, notifBuilder.build());//shows the notification
     }
 }

@@ -21,4 +21,11 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="title_activity_waiter_navigation_drawer">WaiterNavigationDrawerActivity</string>
+    <string name="title_activity_chef_navigation_drawer">ChefNavigationDrawerActivity</string>
+    <string name="title_activity_admin_navigation_drawer">AdminNavigationDrawerActivity</string>
+    <string name="title_activity_testing_drawer">TestingDrawer</string>
+    <string name="title_activity_waiter_drawer">WaiterDrawer</string>
+    <string name="title_activity_chef_drawer">ChefDrawer</string>
+    <string name="title_activity_admin_drawer">AdminDrawer</string>
 </resources>

@@ -67,6 +67,7 @@ public class OrderViewActivity extends AppCompatActivity {
         context = this;
 
         getDbOrders();
+        getSupportActionBar().setTitle("Orders");
     }
 
     private void getDbOrders() {

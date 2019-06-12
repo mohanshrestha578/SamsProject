@@ -13,153 +13,150 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity
-            android:name=".NavigationDrawerActivity"
-            android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-
-        <activity android:name=".Activities.OrderViewActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationDrawerActivity" />
-        </activity>
-
-        <activity android:name=".Activities.Waiter.TableSectionActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationDrawerActivity" />
-        </activity>
-
-        <activity android:name=".Activities.Waiter.ItemsForOrderActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationDrawerActivity" />
-        </activity>
-
-        <activity android:name=".Activities.Waiter.MenuListActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationDrawerActivity" />
-        </activity>
-
-        <activity android:name=".Activities.Waiter.OrderedItemsActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationDrawerActivity" />
-        </activity>
-
-        <activity android:name=".CreateReservation" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationDrawerActivity" />
-        </activity>
-
-        <activity android:name=".CustomerTableLists">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationDrawerActivity" />
-        </activity>
-
-        <activity android:name=".AdminStaffLists">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationDrawerActivity" />
-        </activity>
-
-        <activity android:name=".Activities.AddRolesActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationDrawerActivity" />
-        </activity>
-
-        <activity android:name=".Activities.RolesActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationDrawerActivity" />
-        </activity>
-
-        <activity android:name=".Activities.CategoryActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationDrawerActivity" />
-        </activity>
-
-        <activity android:name=".Activities.AddCategory">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationDrawerActivity" />
-        </activity>
-
-        <activity android:name=".ItemViewActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationDrawerActivity" />
-        </activity>
-
-        <activity android:name=".AdminTableLists">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationDrawerActivity" />
-        </activity>
-
-        <activity android:name=".CreateTable" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationDrawerActivity" />
-        </activity>
-
-        <activity android:name=".Addcategory">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationDrawerActivity" />
-        </activity>
-
-        <activity android:name=".UsersList">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationDrawerActivity" />
-        </activity>
-
-        <activity android:name=".Addstaff" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationDrawerActivity" />
-        </activity>
-
-        <activity android:name=".Additem" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationDrawerActivity" />
-        </activity>
-
-        <activity android:name=".Activities.RegisterActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationDrawerActivity" />
-        </activity>
-
-        <activity android:name=".Activities.HomepageActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationDrawerActivity" />
-        </activity>
-
-        <activity android:name=".Login" >
+        <activity android:name=".SplashActivity"
+            android:theme="@style/AppTheme.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".AdminDrawer"
+            android:label="@string/title_activity_admin_drawer"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ChefDrawer"
+            android:label="@string/title_activity_chef_drawer"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".WaiterDrawer"
+            android:label="@string/title_activity_waiter_drawer"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CustomerNavigationDrawerActivity"
+            android:label="@string/title_activity_navigation_drawer"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Activities.OrderViewActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDrawer" />
+        </activity>
+        <activity android:name=".Activities.Waiter.TableSectionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDrawer" />
+        </activity>
+        <activity android:name=".Activities.Waiter.ItemsForOrderActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDrawer" />
+        </activity>
+        <activity android:name=".Activities.Waiter.MenuListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDrawer" />
+        </activity>
+        <activity android:name=".Activities.Waiter.OrderedItemsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDrawer" />
+        </activity>
+        <activity android:name=".CreateReservation">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDrawer" />
+        </activity>
+        <activity android:name=".CustomerTableLists">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDrawer" />
+        </activity>
+        <activity android:name=".AdminStaffLists">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDrawer" />
+        </activity>
+        <activity android:name=".Activities.AddRolesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDrawer" />
+        </activity>
+        <activity android:name=".Activities.RolesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDrawer" />
+        </activity>
+        <activity android:name=".Activities.CategoryActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDrawer" />
+        </activity>
+        <activity android:name=".Activities.AddCategory">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDrawer" />
+        </activity>
+        <activity android:name=".ItemViewActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDrawer" />
+        </activity>
+        <activity android:name=".AdminTableLists">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDrawer" />
+        </activity>
+        <activity android:name=".CreateTable">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDrawer" />
+        </activity>
+        <activity android:name=".UsersList">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDrawer" />
+        </activity>
+        <activity android:name=".Addstaff">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDrawer" />
+        </activity>
+        <activity android:name=".Additem">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDrawer" />
+        </activity>
+        <activity android:name=".Activities.RegisterActivity"
+            android:theme="@style/AppTheme.FullScreen">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDrawer" />
+        </activity>
+        <activity android:name=".Activities.HomepageActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDrawer" />
+        </activity>
+        <activity android:name=".Login"
+            android:theme="@style/AppTheme.FullScreen">
 
         </activity>
-        <activity android:name=".Activities.Admin.Item" />
+        <activity android:name=".MainActivity" >
+
+        </activity>
+        <activity android:name=".Activities.Admin.Item">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDrawer" />
+        </activity>
+
+        <activity android:name=".Activities.Admin.SalesReportActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDrawer" />
+        </activity>
+
     </application>
 
 </manifest>

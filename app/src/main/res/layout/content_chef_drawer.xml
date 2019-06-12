@@ -5,13 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".NavigationDrawerActivity"
-    tools:showIn="@layout/app_bar_navigation_drawer">
+    tools:context=".ChefDrawer"
+    tools:showIn="@layout/app_bar_chef_drawer">
 
     <FrameLayout
-        android:id="@+id/display_area"
+        android:id="@+id/screen_area_chef"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </FrameLayout>
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>
